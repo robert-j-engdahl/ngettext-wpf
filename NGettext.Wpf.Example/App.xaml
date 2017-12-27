@@ -1,0 +1,11 @@
+﻿<Application x:Class="NGettext.Wpf.Example.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:NGettext.Wpf.Example"
+             xmlns:wpf="clr-namespace:NGettext.Wpf;assembly=NGettext.Wpf"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <wpf:ChangeCultureCommand x:Key="ChangeCultureCommand" />
+    </Application.Resources>
+</Application>

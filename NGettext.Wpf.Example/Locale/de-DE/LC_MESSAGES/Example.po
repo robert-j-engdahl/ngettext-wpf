@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-12-28 00:09+0100\n"
+"PO-Revision-Date: 2017-12-28 00:10+0100\n"
+"Last-Translator: Robert Engdahl <rje@accuratech.dk>\n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: Localizer.Noop\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: MainWindow.xaml.cs:12
+msgid "Danish"
+msgstr "Dänisch"
+
+#: MainWindow.xaml.cs:13
+msgid "English"
+msgstr "Englisch"
+
+#: MainWindow.xaml.cs:14
+msgid "German"
+msgstr "Deutsch"
+
+#: MainWindow.xaml.cs:15
+msgid "NGettext.WPF Example"
+msgstr "NGettext.WPF-Beispiel"
