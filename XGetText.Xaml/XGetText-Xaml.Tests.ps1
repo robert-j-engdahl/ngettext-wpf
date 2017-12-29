@@ -48,7 +48,6 @@ Describe "XGetText-Xaml" {
 
     It "Writes output to specified file" {
         XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o TestDrive:\Output.pot
-        Get-Content TestDrive:\Output.pot | Write-Host
         'TestDrive:\Output.pot' | Should -FileContentMatchMultiline '#, fuzzy\nmsgid ""\nmsgstr ""'
     }
     
