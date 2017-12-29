@@ -10,7 +10,12 @@
     HelpMessage="Additional keywords that match MarkupExtensions enclosing msgids to be extracted.")]
     [Alias("k")]
     [string[]]
-    $Keywords)
+    $Keywords,
+    [Parameter(Mandatory=$false,
+    HelpMessage="Write output to specified file.")]
+    [Alias("o")]
+    [string]$output="messages.pot")
+
 
   
 
@@ -26,10 +31,22 @@
         } 
     }
 
-    $result = ""
+    $result = '#, fuzzy
+msgid ""
+msgstr ""
+"POT-Creation-Date: ' + $(Get-Date -Format 'yyyy-mm-dd HH:mmK') + '\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n\n"' 
+
     $msgids.GetEnumerator() | ForEach-Object {
-        $result = $result + $($_.Value.Locations -join [System.Environment]::NewLine) + [System.Environment]::NewLine + "msgid """ + $_.Key + """" + [System.Environment]::NewLine + "msgstr """"" + [System.Environment]::NewLine + [System.Environment]::NewLine 
+        $result = $result + $($_.Value.Locations -join [System.Environment]::NewLine) + [System.Environment]::NewLine + "msgid """ + $_.Key + """" + [System.Environment]::NewLine + "msgstr """"" + [System.Environment]::NewLine + [System.Environment]::NewLine
     }
 
-    Write-Output $result.ToString()
+    if ($output -eq '-') {
+        Write-Output $result.ToString() 
+    }
+    else {
+        $result -replace "\r", "" | Out-File -Encoding 'ascii' -NoNewline $output   
+    }
 }

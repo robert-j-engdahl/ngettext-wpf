@@ -35,14 +35,21 @@ Describe "XGetText-Xaml" {
 </Window>'
 
     It "Extracts msgids from given XAML file" {
-        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext  | Should -Match ([regex]::Escape("msgid ""NGettext.WPF Example"""+ [System.Environment]::NewLine +"msgstr """"" + [System.Environment]::NewLine + [System.Environment]::NewLine)) 
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("msgid ""NGettext.WPF Example"""+ [System.Environment]::NewLine +"msgstr """"" + [System.Environment]::NewLine + [System.Environment]::NewLine)) 
     }
 
     It "Annotates msgid with filename and line number" {
-        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext  | Should -Match ([regex]::Escape("#: TestFile.xaml:8" + [System.Environment]::NewLine + "msgid ""NGettext.WPF Example""")) 
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("#: TestFile.xaml:8" + [System.Environment]::NewLine + "msgid ""NGettext.WPF Example""")) 
     }
 
     It "Joins matching msgids" {
-        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext  | Should -Match ([regex]::Escape("#: TestFile.xaml:26" + [System.Environment]::NewLine + "#: TestFile.xaml:27" + [System.Environment]::NewLine +"msgid ""Danish"""))
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("#: TestFile.xaml:26" + [System.Environment]::NewLine + "#: TestFile.xaml:27" + [System.Environment]::NewLine +"msgid ""Danish"""))
     }
+
+    It "Writes output to specified file" {
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o TestDrive:\Output.pot
+        Get-Content TestDrive:\Output.pot | Write-Host
+        'TestDrive:\Output.pot' | Should -FileContentMatchMultiline '#, fuzzy\nmsgid ""\nmsgstr ""'
+    }
+    
 }
