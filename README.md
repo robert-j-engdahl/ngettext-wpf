@@ -21,7 +21,7 @@ Now you can do something like this in XAML:
 ```
 Which demonstrates two features of this library.  The most important is the Gettext markup extension which will make sure the `Content` is set to the translation of "English" with respect to the current culture, and update it when the current culture is changed.  The other feature it demonstrates is the `ChangeCultureCommand` which changes the current culture to the given culture, in this case `"en-US"`.
 
-Have a look at NGettext.Wpf.Example\UpdateTranslations.ps1 for how to extract msgids from both xaml and cs files.
+Have a look at <a href="NGettext.Wpf.Example/UpdateTranslations.ps1">NGettext.Wpf.Example\UpdateTranslations.ps1</a> for how to extract msgids from both xaml and cs files.
 
 ## Conventions
 Keep your compiled translations in `"Locale\<LOCALE>\LC_MESSAGES\<DOMAIN>.mo"`.  This library will force you to follow this convention.  Or rather, NGettext forces you to follow a convention like `"<PATH_TO_LOCALES>\<LOCALE>\LC_MESSAGES\<DOMAIN>.mo"`, and I refined it.
