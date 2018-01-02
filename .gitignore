@@ -8,3 +8,4 @@ _NCrunch*
 Asserts/
 *.csproj.user
 *.pot
+*.nupkg
