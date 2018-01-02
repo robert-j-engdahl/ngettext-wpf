@@ -9,11 +9,8 @@ namespace NGettext.Wpf.Example
     {
         public MainWindow()
         {
-            Localizer.Noop("Danish");
-            Localizer.Noop("English");
-            Localizer.Noop("German");
-            Localizer.Noop("NGettext.WPF Example");
             InitializeComponent();
+            Title = GettextExtension.Localizer.Catalog.GetString("NGettext.WPF Example");
         }
     }
 }
