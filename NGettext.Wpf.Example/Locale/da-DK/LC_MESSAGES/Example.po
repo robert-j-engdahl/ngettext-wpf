@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-12-28 00:10+0100\n"
-"PO-Revision-Date: 2017-12-28 00:10+0100\n"
+"POT-Creation-Date: 2017-51-29 21:51+01:00\n"
+"PO-Revision-Date: 2017-12-29 21:52+0100\n"
 "Last-Translator: Robert Engdahl <rje@accuratech.dk>\n"
 "Language-Team: \n"
 "Language: da_DK\n"
@@ -15,18 +15,17 @@ msgstr ""
 "X-Poedit-KeywordsList: Localizer.Noop\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: MainWindow.xaml.cs:12
-msgid "Danish"
-msgstr "Dansk"
-
-#: MainWindow.xaml.cs:13
 msgid "English"
 msgstr "Engelsk"
 
-#: MainWindow.xaml.cs:14
+#: MainWindow.xaml:26
+msgid "Danish"
+msgstr "Dansk"
+
+#: MainWindow.xaml:24
 msgid "German"
 msgstr "Tysk"
 
-#: MainWindow.xaml.cs:15
+#: MainWindow.xaml:8
 msgid "NGettext.WPF Example"
 msgstr "NGettext.WPF-eksempel"
