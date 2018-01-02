@@ -3,7 +3,9 @@
 # gettext tools don't setup their path correctly yet, so here is a work-around
 $env:Path += ";..\packages\gettext.Tools.0.19.8.1\tools\bin"
 
-# Extract msgids from xaml files in project into pot file
+# Extract msgids from xaml files in project into pot file.  If you installed NGettext.Wpf via nuget you can source like so:
+#   . XGetText-Xaml.ps1
+# instead of the following
 . ../XGetText.Xaml/XGetText-Xaml.ps1
 XGetText-Xaml -o obj/xamlmessages.pot -k Gettext @(Get-ChildItem -Recurse -File -Filter *.xaml | Where { $_.FullName -NotLike '*\obj\*' } | ForEach-Object { $_.FullName })
 
