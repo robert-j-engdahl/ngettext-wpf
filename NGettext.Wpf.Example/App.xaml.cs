@@ -15,6 +15,7 @@ namespace NGettext.Wpf.Example
             var cultureTracker = new CultureTracker();
             ChangeCultureCommand.CultureTracker = cultureTracker;
             GettextExtension.Localizer = new Localizer(cultureTracker, "Example");
+            TrackCurrentCultureBehavior.CultureTracker = cultureTracker;
         }
     }
 }

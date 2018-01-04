@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-02 10:56+0100\n"
-"PO-Revision-Date: 2017-12-28 00:10+0100\n"
+"POT-Creation-Date: 2018-01-05 00:07+0100\n"
+"PO-Revision-Date: 2018-01-05 00:16+0100\n"
 "Last-Translator: Robert Engdahl <rje@accuratech.dk>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -16,18 +16,42 @@ msgstr ""
 "X-Poedit-KeywordsList: Localizer.Noop\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: MainWindow.xaml:25
+#: MemoryLeakTestWindow.xaml:15
+msgid ""
+"Close this window to test that the attached behavior releases its event "
+"listeners from the culture tracker."
+msgstr ""
+"Schließen Sie dieses Fenster, um zu testen, ob das angehängte Verhalten "
+"seine Ereignis-Listener vom Culture Tracker freigibt."
+
+#: MainWindow.xaml:33
 msgid "Danish"
 msgstr "Dänisch"
 
-#: MainWindow.xaml:21
+#: MainWindow.xaml:29
 msgid "English"
 msgstr "Englisch"
 
-#: MainWindow.xaml:23
+#: MainWindow.xaml:31
 msgid "German"
 msgstr "Deutsch"
 
-#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:13
+#: MainWindow.xaml:40
+msgid "Localized date time format example:"
+msgstr "Lokales Datumsformatbeispiel:"
+
+#: MainWindow.xaml:36
+msgid "Localized number format example:"
+msgstr "Lokales Zahlenformatbeispiel:"
+
+#: MainWindow.xaml:47
+msgid "Memory leak test progress:"
+msgstr "Speicherlecktestfortschritt:"
+
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:19
 msgid "NGettext.WPF Example"
 msgstr "NGettext.WPF-Beispiel"
+
+#: MainWindow.xaml:44
+msgid "Run TrackCurrentCultureBehavior memory leak test"
+msgstr "Den TrackCurrentCultureBehavior-Speicherlecktest ausführen"

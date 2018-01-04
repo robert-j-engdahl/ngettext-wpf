@@ -4,25 +4,54 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:wpf="clr-namespace:NGettext.Wpf;assembly=NGettext.Wpf"
-        mc:Ignorable="d" Height="350" Width="525">
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        mc:Ignorable="d" Height="350" Width="525" x:Name="Window">
+    <i:Interaction.Behaviors>
+        <wpf:TrackCurrentCultureBehavior />
+    </i:Interaction.Behaviors>
     <Grid>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="4,0" />
+                <Setter Property="MinWidth" Value="80" />
+            </Style>
+        </Grid.Resources>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <StackPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="Margin" Value="4,0" />
-                    <Setter Property="Width" Value="80" />
-                </Style>
-            </StackPanel.Resources>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0" Margin="40">
+
             <Button CommandParameter="en-US" Command="{StaticResource ChangeCultureCommand}"
                     Content="{wpf:Gettext English}" />
             <Button CommandParameter="de-DE" Command="{StaticResource ChangeCultureCommand}"
                     Content="{wpf:Gettext German}" />
             <Button CommandParameter="da-DK" Command="{StaticResource ChangeCultureCommand}"
                     Content="{wpf:Gettext Danish}" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
+            <TextBlock Text="{wpf:Gettext Localized number format example:}" Width="280" TextAlignment="Right"
+                       Margin="0,0,20,0" />
+            <TextBlock Text="{Binding SomeNumber, ElementName=Window, StringFormat={}{0:n2}, Mode=OneWay}" Width="220" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal">
+            <TextBlock Text="{wpf:Gettext Localized date time format example:}" Width="280" TextAlignment="Right"
+                       Margin="0,0,20,0" />
+            <TextBlock Text="{Binding CurrentTime, ElementName=Window, StringFormat={}{0:F}, Mode=OneWay}" Width="220" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.Row="3" Margin="40">
+            <Button Content="{wpf:Gettext Run TrackCurrentCultureBehavior memory leak test}" Width="340"
+                    Click="OpenMemoryLeakTestWindow" Margin="15,4,15,4" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{wpf:Gettext Memory leak test progress:}" Margin="4" Width="170" TextAlignment="Right" />
+                <ProgressBar Width="200" Height="10" Value="{Binding MemoryLeakTestProgress, ElementName=Window}"
+                             Maximum="5"
+                             Margin="4" />
+            </StackPanel>
+
         </StackPanel>
     </Grid>
 </Window>
