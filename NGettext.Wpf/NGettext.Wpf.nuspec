@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>NGettext.Wpf</id>
-    <version>1.0.7-alpha</version>
+    <version>1.0.8-alpha</version>
     <title>WPF support for NGettext</title>
     <authors>Robert Jørgensgaard Engdahl</authors>
     <owners>Robert Jørgensgaard Engdahl</owners>
@@ -11,14 +11,14 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Proper internationalization support for WPF (via NGettext).  In particular a GetTextMarkupExtension is included, which is what everyone uses anyway.</description>
     <releaseNotes>This release includes a PowerShell commandlet that emulates xgettext but works on XAML files.  It is available in the package manager console.</releaseNotes>
-    <copyright>Copyright 2017 Robert Jørgensgaard Engdahl</copyright>
+    <copyright>Copyright 2017, 2018 Robert Jørgensgaard Engdahl</copyright>
     <tags>gettext wpf ngettext gettextmarkupextension xgettext-xaml</tags>
     <dependencies>
       <dependency id="NGettext" version="0.6.3"/>
     </dependencies>
   </metadata>
   <files>
-    <file src="bin/Release/NGettext.Wpf.dll" target="lib/net461" />
+    <file src="bin/Release/NGettext.Wpf.dll" target="lib/net40" />
     <file src="../XGetText.Xaml/XGetText-Xaml.ps1" target="tools" />
     <file src="../XGetText.Xaml/Init.ps1" target="tools" />
   </files>
