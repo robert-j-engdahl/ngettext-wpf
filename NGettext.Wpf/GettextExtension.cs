@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Markup;
 
@@ -43,7 +44,12 @@ namespace NGettext.Wpf
 
             KeepGettextExtensionAliveForAsLongAsDependencyObject();
 
-            return Localizer.Catalog.GetString(MsgId, Params);
+            return Gettext();
+        }
+
+        private string Gettext()
+        {
+            return Params.Any() ? Localizer.Catalog.GetString(MsgId, Params) : Localizer.Catalog.GetString(MsgId);
         }
 
         private void KeepGettextExtensionAliveForAsLongAsDependencyObject()
@@ -63,7 +69,7 @@ namespace NGettext.Wpf
 
         public void HandleCultureChanged(ICultureTracker sender, CultureEventArgs eventArgs)
         {
-            _dependencyObject.SetValue(_dependencyProperty, Localizer.Catalog.GetString(MsgId, Params));
+            _dependencyObject.SetValue(_dependencyProperty, Gettext());
         }
 
         public static readonly DependencyProperty GettextExtensionProperty = DependencyProperty.RegisterAttached(

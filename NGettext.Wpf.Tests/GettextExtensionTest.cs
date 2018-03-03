@@ -47,9 +47,7 @@ namespace NGettext.Wpf.Tests
             var text = "translation";
             var target = new GettextExtension(msgId);
             GettextExtension.Localizer = Substitute.For<ILocalizer>();
-            GettextExtension.Localizer.Catalog
-                .GetString(Arg.Is(msgId), Arg.Is<object[]>(@params => @params.Length == 0))
-                .Returns(text);
+            GettextExtension.Localizer.Catalog.GetString(Arg.Is(msgId)).Returns(text);
 
             Assert.Equal(text, target.ProvideValue(_serviceProvider));
         }
