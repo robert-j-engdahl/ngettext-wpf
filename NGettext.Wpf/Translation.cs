@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 namespace NGettext.Wpf
 {
@@ -7,7 +6,7 @@ namespace NGettext.Wpf
     {
         public static string _(string msgId, params object[] @params)
         {
-            if (Localizer is null) throw new Exception("Translation.Localizer must be initialized");
+            if (Localizer is null) return @params.Any() ? string.Format(msgId, @params) : msgId;
             return @params.Any() ? Localizer.Catalog.GetString(msgId, @params) : Localizer.Catalog.GetString(msgId);
         }
 
