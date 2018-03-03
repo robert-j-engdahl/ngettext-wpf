@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Markup;
 
@@ -6,7 +7,7 @@ namespace NGettext.Wpf
 {
     public class GettextExtension : MarkupExtension, IWeakCultureObserver
     {
-        private FrameworkElement _frameworkElement;
+        private DependencyObject _dependencyObject;
         private DependencyProperty _dependencyProperty;
 
         [ConstructorArgument("params")] public object[] Params { get; set; }
@@ -30,8 +31,8 @@ namespace NGettext.Wpf
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
             var provideValueTarget = (IProvideValueTarget)serviceProvider.GetService(typeof(IProvideValueTarget));
-            _frameworkElement = (FrameworkElement)provideValueTarget.TargetObject;
-            if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(_frameworkElement))
+            _dependencyObject = (DependencyObject)provideValueTarget.TargetObject;
+            if (DesignerProperties.GetIsInDesignMode(_dependencyObject))
             {
                 return string.Format(MsgId, Params);
             }
@@ -40,7 +41,14 @@ namespace NGettext.Wpf
 
             _dependencyProperty = (DependencyProperty)provideValueTarget.TargetProperty;
 
+            KeepGettextExtensionAliveForAsLongAsDependencyObject();
+
             return Localizer.Catalog.GetString(MsgId, Params);
+        }
+
+        private void KeepGettextExtensionAliveForAsLongAsDependencyObject()
+        {
+            SetGettextExtension(_dependencyObject, this);
         }
 
         private void AttachToCultureChangedEvent()
@@ -55,7 +63,20 @@ namespace NGettext.Wpf
 
         public void HandleCultureChanged(ICultureTracker sender, CultureEventArgs eventArgs)
         {
-            _frameworkElement.SetValue(_dependencyProperty, Localizer.Catalog.GetString(MsgId, Params));
+            _dependencyObject.SetValue(_dependencyProperty, Localizer.Catalog.GetString(MsgId, Params));
+        }
+
+        public static readonly DependencyProperty GettextExtensionProperty = DependencyProperty.RegisterAttached(
+            "GettextExtension", typeof(GettextExtension), typeof(GettextExtension), new PropertyMetadata(default(GettextExtension)));
+
+        public static void SetGettextExtension(DependencyObject element, GettextExtension value)
+        {
+            element.SetValue(GettextExtensionProperty, value);
+        }
+
+        public static GettextExtension GetGettextExtension(DependencyObject element)
+        {
+            return (GettextExtension)element.GetValue(GettextExtensionProperty);
         }
     }
 }
