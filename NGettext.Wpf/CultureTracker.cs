@@ -1,23 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace NGettext.Wpf
 {
     public interface ICultureTracker
     {
+        [Obsolete("Use AddWeakCultureObserver() instead.  Otherwise the culture tracker (which is probably a singleton) will keep your object alive for longer than it needs to.")]
         event EventHandler<CultureEventArgs> CultureChanged;
+
         event EventHandler<CultureEventArgs> CultureChanging;
+
         CultureInfo CurrentCulture { get; set; }
+
+        void AddWeakCultureObserver(IWeakCultureObserver weakCultureObserver);
     }
 
     public class CultureTracker : ICultureTracker
     {
         private CultureInfo _currentCulture = CultureInfo.CurrentUICulture;
+        private List<WeakReference<IWeakCultureObserver>> _weakObservers = new List<WeakReference<IWeakCultureObserver>>();
+
         public event EventHandler<CultureEventArgs> CultureChanged;
 
         public CultureInfo CurrentCulture
         {
-            get { return _currentCulture; }
+            get => _currentCulture;
             set
             {
                 CultureChanging?.Invoke(this, new CultureEventArgs(value));
@@ -28,9 +36,26 @@ namespace NGettext.Wpf
 
         protected virtual void RaiseCultureChanged()
         {
-            CultureChanged?.Invoke(this, new CultureEventArgs(CurrentCulture));
+            var cultureEventArgs = new CultureEventArgs(CurrentCulture);
+            CultureChanged?.Invoke(this, cultureEventArgs);
+
+            var weakObserversStillAlive = new List<WeakReference<IWeakCultureObserver>>();
+            foreach (var weakReference in _weakObservers)
+            {
+                if (!weakReference.TryGetTarget(out var observer)) continue;
+
+                observer.HandleCultureChanged(this, cultureEventArgs);
+                weakObserversStillAlive.Add(weakReference);
+            }
+
+            _weakObservers = weakObserversStillAlive;
         }
 
         public event EventHandler<CultureEventArgs> CultureChanging;
+
+        public void AddWeakCultureObserver(IWeakCultureObserver weakCultureObserver)
+        {
+            _weakObservers.Add(new WeakReference<IWeakCultureObserver>(weakCultureObserver));
+        }
     }
 }

@@ -4,7 +4,7 @@ using System.Windows.Markup;
 
 namespace NGettext.Wpf
 {
-    public class GettextExtension : MarkupExtension
+    public class GettextExtension : MarkupExtension, IWeakCultureObserver
     {
         private FrameworkElement _frameworkElement;
         private DependencyProperty _dependencyProperty;
@@ -29,18 +29,16 @@ namespace NGettext.Wpf
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            var provideValueTarget = (IProvideValueTarget) serviceProvider.GetService(typeof(IProvideValueTarget));
-            _frameworkElement = (FrameworkElement) provideValueTarget.TargetObject;
+            var provideValueTarget = (IProvideValueTarget)serviceProvider.GetService(typeof(IProvideValueTarget));
+            _frameworkElement = (FrameworkElement)provideValueTarget.TargetObject;
             if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(_frameworkElement))
             {
                 return string.Format(MsgId, Params);
             }
 
             AttachToCultureChangedEvent();
-            _frameworkElement.Unloaded += DetatchFromCultureChangedEvent;
 
-            _dependencyProperty = (DependencyProperty) provideValueTarget.TargetProperty;
-
+            _dependencyProperty = (DependencyProperty)provideValueTarget.TargetProperty;
 
             return Localizer.Catalog.GetString(MsgId, Params);
         }
@@ -52,15 +50,10 @@ namespace NGettext.Wpf
                 throw new Exception("GettextExtension.Localizer must be initialized");
             }
 
-            Localizer.CultureTracker.CultureChanged += UpdateTranslation;
+            Localizer.CultureTracker.AddWeakCultureObserver(this);
         }
 
-        private void DetatchFromCultureChangedEvent(object sender, RoutedEventArgs e)
-        {
-            Localizer.CultureTracker.CultureChanged -= UpdateTranslation;
-        }
-
-        private void UpdateTranslation(object sender, CultureEventArgs e)
+        public void HandleCultureChanged(ICultureTracker sender, CultureEventArgs eventArgs)
         {
             _frameworkElement.SetValue(_dependencyProperty, Localizer.Catalog.GetString(MsgId, Params));
         }

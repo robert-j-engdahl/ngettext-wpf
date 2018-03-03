@@ -52,11 +52,38 @@ namespace NGettext.Wpf.Tests
             _target.CurrentCulture = culture;
         }
 
-
         [Fact]
         public void CurrentCulture_Is_Initially_CurrentUiCulture()
         {
             Assert.Same(CultureInfo.CurrentUICulture, _target.CurrentCulture);
+        }
+
+        [Fact]
+        public void Setting_CurrentCulture_Notifies_Weak_Culture_Observers()
+        {
+            var cultureObserver = Substitute.For<IWeakCultureObserver>();
+            _target.AddWeakCultureObserver(cultureObserver);
+
+            var culture = new CultureInfo("en-US");
+
+            _target.CurrentCulture = culture;
+
+            cultureObserver.Received().HandleCultureChanged(Arg.Is(_target), Arg.Is<CultureEventArgs>(e => e.CultureInfo == culture));
+        }
+
+        [Fact]
+        public void Weak_Culture_Observers_May_Be_Garbage_Collected()
+        {
+            var weakCultureObserver = GetWeakReferenceToObservingCultureObserver();
+            GC.Collect();
+            Assert.False(weakCultureObserver.TryGetTarget(out var _));
+        }
+
+        private WeakReference<IWeakCultureObserver> GetWeakReferenceToObservingCultureObserver()
+        {
+            var cultureObserver = Substitute.For<IWeakCultureObserver>();
+            _target.AddWeakCultureObserver(cultureObserver);
+            return new WeakReference<IWeakCultureObserver>(cultureObserver);
         }
     }
 }

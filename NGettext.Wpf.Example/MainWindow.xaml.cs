@@ -18,7 +18,7 @@ namespace NGettext.Wpf.Example
             InitializeComponent();
             Title = GettextExtension.Localizer.Catalog.GetString("NGettext.WPF Example");
 
-            var timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(0.1)};
+            var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(0.1) };
             timer.Tick += (sender, args) => { CurrentTime = DateTime.Now; };
             timer.Start();
         }
@@ -35,20 +35,31 @@ namespace NGettext.Wpf.Example
             }
         }
 
-        private void OpenMemoryLeakTestWindow(object sender, RoutedEventArgs e)
+        private async void OpenMemoryLeakTestWindow(object sender, RoutedEventArgs e)
+        {
+            var leakTestWindowReference = GetWeakReferenceToLeakTestWindow();
+            for (var i = 0; i < 20; ++i)
+            {
+                if (!leakTestWindowReference.TryGetTarget(out var _)) return;
+                await Task.Delay(TimeSpan.FromSeconds(1));
+                GC.Collect();
+            }
+            Debug.Assert(!leakTestWindowReference.TryGetTarget(out var _), "memory leak detected");
+        }
+
+        private WeakReference<MemoryLeakTestWindow> GetWeakReferenceToLeakTestWindow()
         {
             var window = new MemoryLeakTestWindow();
             window.Closed += async (o, args) =>
             {
                 await Task.Delay(TimeSpan.FromSeconds(1));
                 ++MemoryLeakTestProgress;
-                var expectedLanguage = window.Language;
                 foreach (var locale in new[]
                     {"da-DK", "de-DE", "en-US", TrackCurrentCultureBehavior.CultureTracker.CurrentCulture.Name})
                 {
                     await Task.Delay(TimeSpan.FromSeconds(1));
                     TrackCurrentCultureBehavior.CultureTracker.CurrentCulture = CultureInfo.GetCultureInfo(locale);
-                    Debug.Assert(window.Language == expectedLanguage);
+
                     ++MemoryLeakTestProgress;
                 }
             };
@@ -56,6 +67,8 @@ namespace NGettext.Wpf.Example
             MemoryLeakTestProgress = 0;
 
             window.Close();
+
+            return new WeakReference<MemoryLeakTestWindow>(window);
         }
 
         public int MemoryLeakTestProgress

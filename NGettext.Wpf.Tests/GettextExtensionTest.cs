@@ -19,7 +19,7 @@ namespace NGettext.Wpf.Tests
 
             public string Text
             {
-                get { return (string) GetValue(TextProperty); }
+                get { return (string)GetValue(TextProperty); }
                 set { SetValue(TextProperty, value); }
             }
         }
@@ -59,7 +59,7 @@ namespace NGettext.Wpf.Tests
         {
             var msgId = "msgid";
             var text = "translation";
-            var @params = new object[] {"foo", 42};
+            var @params = new object[] { "foo", 42 };
             var target = new GettextExtension(msgId, @params);
             GettextExtension.Localizer = Substitute.For<ILocalizer>();
             GettextExtension.Localizer.Catalog.GetString(Arg.Is(msgId), Arg.Is(@params)).Returns(text);
@@ -72,15 +72,15 @@ namespace NGettext.Wpf.Tests
         {
             var msgId = "msgid";
             var text = "translation";
-            var @params = new object[] {"foo", 42};
+            var @params = new object[] { "foo", 42 };
             var target = new GettextExtension(msgId, @params);
             GettextExtension.Localizer = Substitute.For<ILocalizer>();
+            GettextExtension.Localizer.CultureTracker.Returns(new CultureTracker());
 
             target.ProvideValue(_serviceProvider);
 
             GettextExtension.Localizer.Catalog.GetString(Arg.Is(msgId), Arg.Is(@params)).Returns(text);
-            GettextExtension.Localizer.CultureTracker.CultureChanged +=
-                Raise.Event<EventHandler<CultureEventArgs>>(new CultureEventArgs(new CultureInfo("da-DK")));
+            GettextExtension.Localizer.CultureTracker.CurrentCulture = new CultureInfo("da-DK");
 
             Assert.Equal(text, _valueTarget.Text);
         }
@@ -93,7 +93,7 @@ namespace NGettext.Wpf.Tests
             var text = "text";
             var oldText = "old text";
             _valueTarget.Text = oldText;
-            var @params = new object[] {"foo", 42};
+            var @params = new object[] { "foo", 42 };
             var target = new GettextExtension(msgId, @params);
             GettextExtension.Localizer = Substitute.For<ILocalizer>();
 
