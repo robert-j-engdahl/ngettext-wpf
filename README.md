@@ -21,7 +21,15 @@ Now you can do something like this in XAML:
 ```
 Which demonstrates two features of this library.  The most important is the Gettext markup extension which will make sure the `Content` is set to the translation of "English" with respect to the current culture, and update it when the current culture is changed.  The other feature it demonstrates is the `ChangeCultureCommand` which changes the current culture to the given culture, in this case `"en-US"`.
 
-Have a look at <a href="NGettext.Wpf.Example/UpdateTranslations.ps1">NGettext.Wpf.Example\UpdateTranslations.ps1</a> for how to extract msgids from both xaml and cs files.  Note that the script will initially silently fail (i.e. 2> $null) because there is no .po file for the given language.  In the gettext world you are supposed to create that with the <a href="https://www.gnu.org/software/gettext/manual/html_node/Creating.html">msginit</a> command that ships with the <a href="https://www.nuget.org/packages/Gettext.Tools/">Gettext.Tools</a> nuget package, or PoEdit can be used to initialize the catalog from the intermediate pot file created.
+Have a look at <a href="NGettext.Wpf.Example/UpdateTranslations.ps1">NGettext.Wpf.Example\UpdateTranslations.ps1</a> for how to extract msgids from both xaml and cs files.  
+
+Note that the script will initially silently fail (i.e. 2> $null) because there is no .po file for the given language.  In the gettext world you are supposed to create that with the <a href="https://www.gnu.org/software/gettext/manual/html_node/Creating.html">msginit</a> command that ships with the <a href="https://www.nuget.org/packages/Gettext.Tools/">Gettext.Tools</a> nuget package, or PoEdit can be used to initialize the catalog from the intermediate pot file created.  Here is what recently worked for me:
+
+```
+PM> mkdir -p Locale\en-GB\LC_MESSAGES\
+PM> msginit --input=obj\result.pot --output-file=Locale\en-GB\LC_MESSAGES\ExampleDomainName.po --locale=en_GB
+```
+
 
 ## Conventions
 Keep your compiled translations in `"Locale\<LOCALE>\LC_MESSAGES\<DOMAIN>.mo"`.  This library will force you to follow this convention.  Or rather, NGettext forces you to follow a convention like `"<PATH_TO_LOCALES>\<LOCALE>\LC_MESSAGES\<DOMAIN>.mo"`, and I refined it.
