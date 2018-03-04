@@ -61,7 +61,8 @@ namespace NGettext.Wpf
         {
             if (Localizer is null)
             {
-                throw new Exception("GettextExtension.Localizer must be initialized");
+                Console.Error.WriteLine("NGettext.WPF.GettextExtension.Localizer not set.  Localization is disabled.");
+                return;
             }
 
             Localizer.CultureTracker.AddWeakCultureObserver(this);

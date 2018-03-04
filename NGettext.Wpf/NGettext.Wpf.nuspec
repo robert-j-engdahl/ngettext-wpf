@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
     <id>NGettext.Wpf</id>
-    <version>1.0.12-alpha</version>
+    <version>1.0.13-alpha</version>
     <title>WPF support for NGettext</title>
     <authors>Robert Jørgensgaard Engdahl</authors>
     <owners>Robert Jørgensgaard Engdahl</owners>
@@ -10,12 +10,12 @@
     <projectUrl>https://github.com/robert-j-engdahl/ngettext-wpf</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Proper internationalization support for WPF (via NGettext).  In particular a GetTextMarkupExtension is included, which is what everyone uses anyway.</description>
-    <releaseNotes>Improve GettextExtension compatibility.  Improve resilience against memory leaks caused by CultureTracker.</releaseNotes>
+    <releaseNotes>Made configuration errors appear in error console instead of throwing exceptions.  We don't wanna cause unit tests to fail for no good reason or break anything that wouldn't be broken without this package.</releaseNotes>
     <copyright>Copyright 2017, 2018 Robert Jørgensgaard Engdahl</copyright>
     <tags>gettext wpf ngettext gettextmarkupextension xgettext-xaml</tags>
     <dependencies>
-      <dependency id="NGettext" version="0.6.3"/>
-      <dependency id="Expression.Blend.Sdk" version="1.0.2"/>
+      <dependency id="NGettext" version="0.6.3" />
+      <dependency id="Expression.Blend.Sdk" version="1.0.2" />
     </dependencies>
   </metadata>
   <files>

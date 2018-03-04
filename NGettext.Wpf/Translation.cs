@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace NGettext.Wpf
 {
@@ -6,7 +7,11 @@ namespace NGettext.Wpf
     {
         public static string _(string msgId, params object[] @params)
         {
-            if (Localizer is null) return @params.Any() ? string.Format(msgId, @params) : msgId;
+            if (Localizer is null)
+            {
+                Console.Error.WriteLine("NGettext.WPF.Translation.Localizer not set.  Localization is disabled.");
+                return (@params.Any() ? string.Format(msgId, @params) : msgId);
+            }
             return @params.Any() ? Localizer.Catalog.GetString(msgId, @params) : Localizer.Catalog.GetString(msgId);
         }
 
