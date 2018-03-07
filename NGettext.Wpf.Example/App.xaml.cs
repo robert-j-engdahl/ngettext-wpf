@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using NGettext.Wpf.EnumTranslation;
 
 namespace NGettext.Wpf.Example
 {
@@ -14,8 +15,10 @@ namespace NGettext.Wpf.Example
         {
             var cultureTracker = new CultureTracker();
             ChangeCultureCommand.CultureTracker = cultureTracker;
-            GettextExtension.Localizer = new Localizer(cultureTracker, "Example");
+            var localizer = new Localizer(cultureTracker, "Example");
+            GettextExtension.Localizer = localizer;
             TrackCurrentCultureBehavior.CultureTracker = cultureTracker;
+            LocalizeEnumConverter.EnumLocalizer = new EnumLocalizer(localizer);
         }
     }
 }

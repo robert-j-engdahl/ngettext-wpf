@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 
 namespace NGettext.Wpf
 {
@@ -43,10 +45,6 @@ namespace NGettext.Wpf
         public void Dispose()
         {
             CultureTracker.CultureChanging -= ResetCatalog;
-        }
-
-        public static void Noop(string msgId)
-        {
         }
     }
 }

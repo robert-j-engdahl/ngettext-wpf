@@ -131,6 +131,8 @@
     <Compile Include="ChangeCultureCommandTest.cs" />
     <Compile Include="CultureEventArgsTest.cs" />
     <Compile Include="CultureTrackerTest.cs" />
+    <Compile Include="EnumTranslation\EnumLocalizerTest.cs" />
+    <Compile Include="EnumTranslation\LocalizeEnumConverterTest.cs" />
     <Compile Include="GettextExtensionTest.cs" />
     <Compile Include="LocalizerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

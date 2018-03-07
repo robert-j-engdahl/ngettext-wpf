@@ -29,5 +29,12 @@ namespace NGettext.Wpf.Tests
 
             Assert.Equal("expected translation", actual);
         }
+
+        [Fact]
+        public void Underscore_Function_Handles_Localizer_Being_Null()
+        {
+            Translation.Localizer = null;
+            Assert.Equal("untranslated", Translation._("untranslated"));
+        }
     }
 }

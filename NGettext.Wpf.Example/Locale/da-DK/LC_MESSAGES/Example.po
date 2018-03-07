@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-05 00:07+0100\n"
-"PO-Revision-Date: 2018-01-05 00:18+0100\n"
+"POT-Creation-Date: 2018-03-07 21:24+0100\n"
+"PO-Revision-Date: 2018-03-07 21:26+0100\n"
 "Last-Translator: Robert Engdahl <rje@accuratech.dk>\n"
 "Language-Team: \n"
 "Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.5\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-Basepath: ../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: Localizer.Noop\n"
@@ -21,37 +21,53 @@ msgid ""
 "Close this window to test that the attached behavior releases its event "
 "listeners from the culture tracker."
 msgstr ""
-"Luk dette vindue for at teste at den attachede behavior frigiver sine "
-"event-listeners fra culture-trackeren."
+"Luk dette vindue for at teste at den attachede behavior frigiver sine event-"
+"listeners fra culture-trackeren."
 
-#: MainWindow.xaml:33
+#: MainWindow.xaml:36
 msgid "Danish"
 msgstr "Dansk"
 
-#: MainWindow.xaml:29
+#: MainWindow.xaml:32
 msgid "English"
 msgstr "Engelsk"
 
-#: MainWindow.xaml:31
+#: MainWindow.xaml:34
 msgid "German"
 msgstr "Tysk"
 
-#: MainWindow.xaml:40
+#: MainWindow.xaml:44
 msgid "Localized date time format example:"
 msgstr "Lokalformateret dato og klokkeslæt-eksempel:"
 
-#: MainWindow.xaml:36
+#: MainWindow.xaml:49
+msgid "Localized enum combo example:"
+msgstr "Lokalformateret enum-combobox-eksempel:"
+
+#: MainWindow.xaml:39
 msgid "Localized number format example:"
 msgstr "Lokalformateret tal-eksempel:"
 
-#: MainWindow.xaml:47
+#: MainWindow.xaml:57
 msgid "Memory leak test progress:"
 msgstr "Memory-leak-testfremgang:"
 
-#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:19
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:21
 msgid "NGettext.WPF Example"
 msgstr "NGettext.WPF-eksempel"
 
-#: MainWindow.xaml:44
+#: MainWindow.xaml:54
 msgid "Run TrackCurrentCultureBehavior memory leak test"
 msgstr "Udfør TrackCurrentCultureBehavior memory-leak-test"
+
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\ExampleEnum.cs:10
+msgid "Some other value"
+msgstr "En anden værdi"
+
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\ExampleEnum.cs:13
+msgid "Some third value"
+msgstr "En tredje værdi"
+
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\ExampleEnum.cs:7
+msgid "Some value"
+msgstr "En værdi"

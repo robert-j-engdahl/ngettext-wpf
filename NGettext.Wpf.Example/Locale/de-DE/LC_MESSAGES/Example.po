@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-05 00:07+0100\n"
-"PO-Revision-Date: 2018-01-05 00:16+0100\n"
+"POT-Creation-Date: 2018-03-07 21:24+0100\n"
+"PO-Revision-Date: 2018-03-07 21:42+0100\n"
 "Last-Translator: Robert Engdahl <rje@accuratech.dk>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.5\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-Basepath: ../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: Localizer.Noop\n"
@@ -24,34 +24,50 @@ msgstr ""
 "Schließen Sie dieses Fenster, um zu testen, ob das angehängte Verhalten "
 "seine Ereignis-Listener vom Culture Tracker freigibt."
 
-#: MainWindow.xaml:33
+#: MainWindow.xaml:36
 msgid "Danish"
 msgstr "Dänisch"
 
-#: MainWindow.xaml:29
+#: MainWindow.xaml:32
 msgid "English"
 msgstr "Englisch"
 
-#: MainWindow.xaml:31
+#: MainWindow.xaml:34
 msgid "German"
 msgstr "Deutsch"
 
-#: MainWindow.xaml:40
+#: MainWindow.xaml:44
 msgid "Localized date time format example:"
 msgstr "Lokales Datumsformatbeispiel:"
 
-#: MainWindow.xaml:36
+#: MainWindow.xaml:49
+msgid "Localized enum combo example:"
+msgstr "Lokalisierte Enum-Combobox-Beispiel:"
+
+#: MainWindow.xaml:39
 msgid "Localized number format example:"
 msgstr "Lokales Zahlenformatbeispiel:"
 
-#: MainWindow.xaml:47
+#: MainWindow.xaml:57
 msgid "Memory leak test progress:"
 msgstr "Speicherlecktestfortschritt:"
 
-#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:19
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:21
 msgid "NGettext.WPF Example"
 msgstr "NGettext.WPF-Beispiel"
 
-#: MainWindow.xaml:44
+#: MainWindow.xaml:54
 msgid "Run TrackCurrentCultureBehavior memory leak test"
 msgstr "Den TrackCurrentCultureBehavior-Speicherlecktest ausführen"
+
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\ExampleEnum.cs:10
+msgid "Some other value"
+msgstr "Ein anderer Wert"
+
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\ExampleEnum.cs:13
+msgid "Some third value"
+msgstr "Ein dritter Wert"
+
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\ExampleEnum.cs:7
+msgid "Some value"
+msgstr "Ein gewisser Wert"

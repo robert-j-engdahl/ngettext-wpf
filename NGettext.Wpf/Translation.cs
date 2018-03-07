@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 
 namespace NGettext.Wpf
 {
@@ -16,5 +17,9 @@ namespace NGettext.Wpf
         }
 
         public static ILocalizer Localizer { get; set; }
+
+        public static void Noop(string msgId)
+        {
+        }
     }
 }
