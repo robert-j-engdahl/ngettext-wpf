@@ -29,5 +29,12 @@ namespace NGettext.Wpf.Tests.EnumTranslation
 
             Assert.Equal("localized value", actual);
         }
+
+        [Fact]
+        public void Converts_Null_To_Null()
+        {
+            var actual = Assert.IsAssignableFrom<IValueConverter>(_target).Convert(null, null, null, null);
+            Assert.Null(actual);
+        }
     }
 }
