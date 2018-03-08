@@ -8,7 +8,18 @@ namespace NGettext.Wpf.EnumTranslation
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return EnumLocalizer.LocalizeEnum((Enum)value);
+            if (EnumLocalizer is null)
+            {
+                Console.Error.WriteLine("LocalizeEnumConverter.EnumLocalizer was not initialized.  Localization disabled.");
+                return value;
+            }
+
+            if (value is Enum enumValue)
+            {
+                return EnumLocalizer.LocalizeEnum(enumValue);
+            }
+
+            return null;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
