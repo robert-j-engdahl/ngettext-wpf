@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-07 21:24+0100\n"
-"PO-Revision-Date: 2018-03-07 21:42+0100\n"
+"POT-Creation-Date: 2018-04-13 00:15+0200\n"
+"PO-Revision-Date: 2018-04-13 00:24+0200\n"
 "Last-Translator: Robert Engdahl <rje@accuratech.dk>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -28,6 +28,14 @@ msgstr ""
 msgid "Danish"
 msgstr "Dänisch"
 
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:17
+msgid "Deferred localization"
+msgstr "aufgeschobene Übersetzung"
+
+#: MainWindow.xaml:54
+msgid "Deferred localization example:"
+msgstr "Beispiel von aufgeschobene Übersetzung"
+
 #: MainWindow.xaml:32
 msgid "English"
 msgstr "Englisch"
@@ -48,15 +56,15 @@ msgstr "Lokalisierte Enum-Combobox-Beispiel:"
 msgid "Localized number format example:"
 msgstr "Lokales Zahlenformatbeispiel:"
 
-#: MainWindow.xaml:57
+#: MainWindow.xaml:62
 msgid "Memory leak test progress:"
 msgstr "Speicherlecktestfortschritt:"
 
-#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:21
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:22
 msgid "NGettext.WPF Example"
 msgstr "NGettext.WPF-Beispiel"
 
-#: MainWindow.xaml:54
+#: MainWindow.xaml:59
 msgid "Run TrackCurrentCultureBehavior memory leak test"
 msgstr "Den TrackCurrentCultureBehavior-Speicherlecktest ausführen"
 

@@ -19,6 +19,7 @@ namespace NGettext.Wpf.Example
             GettextExtension.Localizer = localizer;
             TrackCurrentCultureBehavior.CultureTracker = cultureTracker;
             LocalizeEnumConverter.EnumLocalizer = new EnumLocalizer(localizer);
+            Translation.Localizer = localizer;
         }
     }
 }

@@ -36,5 +36,11 @@ namespace NGettext.Wpf.Tests
             Translation.Localizer = null;
             Assert.Equal("untranslated", Translation._("untranslated"));
         }
+
+        [Fact]
+        public void Noop_Returns_MsgId()
+        {
+            Assert.Equal("some msgid", Translation.Noop("some msgid"));
+        }
     }
 }

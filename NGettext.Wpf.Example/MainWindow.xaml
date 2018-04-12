@@ -50,6 +50,11 @@
                        Margin="0,0,20,0" />
             <ComboBox ItemsSource="{Binding EnumValues, ElementName=Window, Mode=OneWay}" Width="140" Margin="0,0,80,0" />
         </StackPanel>
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <TextBlock Text="{wpf:Gettext Deferred localization example:}" Width="280" TextAlignment="Right"
+                       Margin="0,0,20,0" />
+            <TextBlock Text="{Binding SomeDeferredLocalization, ElementName=Window, Mode=OneWay}" Width="220" />
+        </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="40">
             <Button Content="{wpf:Gettext Run TrackCurrentCultureBehavior memory leak test}" Width="340"
                     Click="OpenMemoryLeakTestWindow" Margin="15,4,15,4" />

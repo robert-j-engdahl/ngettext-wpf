@@ -18,8 +18,6 @@ namespace NGettext.Wpf
 
         public static ILocalizer Localizer { get; set; }
 
-        public static void Noop(string msgId)
-        {
-        }
+        public static string Noop(string msgId) => msgId;
     }
 }

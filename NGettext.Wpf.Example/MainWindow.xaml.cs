@@ -14,6 +14,7 @@ namespace NGettext.Wpf.Example
     {
         private int _memoryLeakTestProgress;
         private DateTime _currentTime;
+        private readonly string _someDeferredLocalization = Translation.Noop("Deferred localization");
 
         public MainWindow()
         {
@@ -86,5 +87,7 @@ namespace NGettext.Wpf.Example
         public ICollection<ExampleEnum> EnumValues { get; } = Enum.GetValues(typeof(ExampleEnum)).Cast<ExampleEnum>().ToList();
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public string SomeDeferredLocalization => Translation._(_someDeferredLocalization);
     }
 }
