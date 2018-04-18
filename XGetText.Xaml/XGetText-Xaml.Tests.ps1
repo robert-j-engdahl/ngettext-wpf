@@ -26,7 +26,7 @@ Describe "XGetText-Xaml" {
             <Button CommandParameter="en-US" Command="{StaticResource ChangeCultureCommand}"
                     Content="{wpf:Gettext English}" />
             <Button CommandParameter="de-DE" Command="{StaticResource ChangeCultureCommand}"
-                    Content="{wpf:Gettext German}" />
+                    Content="{wpf:Gettext German}" ToolTip="{wpf:Gettext german}"/>
             <Button CommandParameter="da-DK" Command="{StaticResource ChangeCultureCommand}"
                     Content="{wpf:Gettext Danish}" 
                     ToolTip="{wpf:Gettext Danish}" />
@@ -44,6 +44,12 @@ Describe "XGetText-Xaml" {
 
     It "Joins matching msgids" {
         XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("#: TestFile.xaml:26" + [System.Environment]::NewLine + "#: TestFile.xaml:27" + [System.Environment]::NewLine +"msgid ""Danish"""))
+    }
+
+    It "Does not ignore casing of msgids when joining" {
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o TestDrive:\Output.pot
+        "TestDrive:\Output.pot" | Should -FileContentMatchExactly "^msgid ""German""$"
+        "TestDrive:\Output.pot" | Should -FileContentMatchExactly "^msgid ""german""$"
     }
 
     It "Writes output to specified file" {

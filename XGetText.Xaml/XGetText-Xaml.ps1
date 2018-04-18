@@ -19,15 +19,19 @@
 
   
 
-    $msgids = @{}
+    $msgids = New-Object -TypeName System.Collections.Hashtable
     $sourceFiles | ForEach-Object {
-        Select-String $_ -Pattern $("""{[a-z]?[a-z0-9]*:"+$Keywords[0]+ " ([^}]*)}""") | ForEach-Object {
-            $msgid = $_.Matches.Groups[1].ToString()
-            if (-Not $msgids.ContainsKey($msgid))
-            {
-               $msgids.Add($msgid, @{Locations = New-Object System.Collections.ArrayList})
+        Select-String $_ -Pattern $("""{[a-z]?[a-z0-9]*:"+$Keywords[0]+ " ([^}]*)}""") -AllMatches | ForEach-Object {
+            $filename = $_.Filename
+            $lineNumber = $_.LineNumber
+            $_.Matches | ForEach-Object {
+                $msgid = $_.Groups[1].ToString()
+                if (-Not $msgids.ContainsKey($msgid))
+                {
+                   $msgids.Add($msgid, @{Locations = New-Object System.Collections.ArrayList})
+                }
+                [void] $msgids[$msgid].Locations.Add('#: ' + $Filename + ':' + $LineNumber)
             }
-            [void] $msgids[$msgid].Locations.Add('#: ' + $_.Filename + ':' + $_.LineNumber)
         } 
     }
 
@@ -49,4 +53,5 @@ msgstr ""
     else {
         $result -replace "\r", "" | Out-File -Encoding 'ascii' -NoNewline $output   
     }
+
 }
