@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-13 00:15+0200\n"
-"PO-Revision-Date: 2018-04-13 00:24+0200\n"
+"POT-Creation-Date: 2018-04-18 10:11+0200\n"
+"PO-Revision-Date: 2018-04-18 10:16+0200\n"
 "Last-Translator: Robert Engdahl <rje@accuratech.dk>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -56,7 +56,7 @@ msgstr "Lokalisierte Enum-Combobox-Beispiel:"
 msgid "Localized number format example:"
 msgstr "Lokales Zahlenformatbeispiel:"
 
-#: MainWindow.xaml:62
+#: MainWindow.xaml:67
 msgid "Memory leak test progress:"
 msgstr "Speicherlecktestfortschritt:"
 
@@ -64,7 +64,7 @@ msgstr "Speicherlecktestfortschritt:"
 msgid "NGettext.WPF Example"
 msgstr "NGettext.WPF-Beispiel"
 
-#: MainWindow.xaml:59
+#: MainWindow.xaml:64
 msgid "Run TrackCurrentCultureBehavior memory leak test"
 msgstr "Den TrackCurrentCultureBehavior-Speicherlecktest ausführen"
 
@@ -79,3 +79,11 @@ msgstr "Ein dritter Wert"
 #: C:\Git\ngettext-wpf\NGettext.Wpf.Example\ExampleEnum.cs:7
 msgid "Some value"
 msgstr "Ein gewisser Wert"
+
+#: MainWindow.xaml:61
+msgid "Varying cAsE ExamPle:"
+msgstr "Beispiel von Variation zwiScHen Groß- und KleInBUchstaBen"
+
+#: MainWindow.xaml:59
+msgid "Varying case example:"
+msgstr "Beispiel von Variation zwischen Groß- und Kleinbuchstaben"
