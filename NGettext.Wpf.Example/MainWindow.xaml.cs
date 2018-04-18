@@ -19,7 +19,6 @@ namespace NGettext.Wpf.Example
         public MainWindow()
         {
             InitializeComponent();
-            Title = GettextExtension.Localizer.Catalog.GetString("NGettext.WPF Example");
 
             var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(0.1) };
             timer.Tick += (sender, args) => { CurrentTime = DateTime.Now; };
@@ -89,5 +88,7 @@ namespace NGettext.Wpf.Example
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string SomeDeferredLocalization => Translation._(_someDeferredLocalization);
+
+        public string Header => GettextExtension.Localizer.Catalog.GetString("NGettext.WPF Example");
     }
 }

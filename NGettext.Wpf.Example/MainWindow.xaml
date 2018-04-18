@@ -7,6 +7,8 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:enumTranslation="clr-namespace:NGettext.Wpf.EnumTranslation;assembly=NGettext.Wpf"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
+
+        Title="{Binding ElementName=Window, Path=Header}"
         mc:Ignorable="d" Height="350" Width="525" x:Name="Window">
     <Window.Resources>
         <!-- The following ensures all enum values are translated when displayed -->
@@ -55,11 +57,9 @@
                        Margin="0,0,20,0" />
             <TextBlock Text="{Binding SomeDeferredLocalization, ElementName=Window, Mode=OneWay}" Width="220" />
         </StackPanel>
-        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-            <TextBlock Text="{wpf:Gettext Varying case example:}" Width="280" TextAlignment="Right"
-                       Margin="0,0,20,0" />
-            <TextBlock Text="{wpf:Gettext Varying cAsE ExamPle:}" Width="220" />
-        </StackPanel>
+        <TextBlock Text="{wpf:Gettext Varying case example:}" HorizontalAlignment="Center" />
+        <TextBlock Text="{wpf:Gettext Varying cAsE ExamPle:}"  HorizontalAlignment="Center" />
+
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="40">
             <Button Content="{wpf:Gettext Run TrackCurrentCultureBehavior memory leak test}" Width="340"
                     Click="OpenMemoryLeakTestWindow" Margin="15,4,15,4" />
