@@ -34,8 +34,8 @@ namespace NGettext.Wpf
         private void ResetCatalog(CultureInfo cultureInfo)
         {
             var localeDir = "Locale";
-            Debug.Print(
-                $"NGettext.Wpf: Attempting to load \"{Path.Combine(localeDir, cultureInfo.Name, "LC_MESSAGES", _domainName + ".mo")}\"");
+            Console.WriteLine(
+                $"NGettext.Wpf: Attempting to load \"{Path.GetFullPath(Path.Combine(localeDir, cultureInfo.Name, "LC_MESSAGES", _domainName + ".mo"))}\"");
             Catalog = new Catalog(_domainName, localeDir, cultureInfo);
         }
 
