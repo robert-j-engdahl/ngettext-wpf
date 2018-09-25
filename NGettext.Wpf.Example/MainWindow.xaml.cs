@@ -42,11 +42,11 @@ namespace NGettext.Wpf.Example
             var leakTestWindowReference = GetWeakReferenceToLeakTestWindow();
             for (var i = 0; i < 20; ++i)
             {
-                if (!leakTestWindowReference.TryGetTarget(out var _)) return;
+                if (!leakTestWindowReference.TryGetTarget(out _)) return;
                 await Task.Delay(TimeSpan.FromSeconds(1));
                 GC.Collect();
             }
-            Debug.Assert(!leakTestWindowReference.TryGetTarget(out var _), "memory leak detected");
+            Debug.Assert(!leakTestWindowReference.TryGetTarget(out _), "memory leak detected");
         }
 
         private WeakReference<MemoryLeakTestWindow> GetWeakReferenceToLeakTestWindow()
