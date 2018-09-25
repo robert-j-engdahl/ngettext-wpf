@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>NGettext.Wpf</id>
-    <version>1.0.16-alpha</version>
+    <version>1.0.17-alpha</version>
     <title>WPF support for NGettext</title>
     <authors>Robert Jørgensgaard Engdahl</authors>
     <owners>Robert Jørgensgaard Engdahl</owners>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/robert-j-engdahl/ngettext-wpf</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Proper internationalization support for WPF (via NGettext).  In particular a GetTextMarkupExtension is included, which is what everyone uses anyway.</description>
-    <releaseNotes>XGettext-Xaml supports multiple invocations on same line and case sensitive msgids</releaseNotes>
+    <releaseNotes>Translation.PluralGettext static method</releaseNotes>
     <copyright>Copyright 2017, 2018 Robert Jørgensgaard Engdahl</copyright>
     <tags>gettext wpf ngettext gettextmarkupextension xgettext-xaml</tags>
     <dependencies>

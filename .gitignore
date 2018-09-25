@@ -5,7 +5,6 @@ packages/
 **/obj/
 *.v3.*
 _NCrunch*
-Asserts/
 *.csproj.user
 *.pot
 *.nupkg

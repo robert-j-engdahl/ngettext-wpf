@@ -90,5 +90,11 @@ namespace NGettext.Wpf.Example
         public string SomeDeferredLocalization => Translation._(_someDeferredLocalization);
 
         public string Header => GettextExtension.Localizer.Catalog.GetString("NGettext.WPF Example");
+
+        public string PluralGettext => Translation.PluralGettext(1, "Singular", "Plural") + 
+                                       "---" + Translation.PluralGettext(2, "Singular", "Plural");
+
+        public string PluralGettextParams => Translation.PluralGettext(1, "Singular {0:n3}", "Plural {0:n3}", 1m/3m) + 
+                                             "---" + Translation.PluralGettext(2, "Singular {0:n3}", "Plural {0:n3}", 1m / 3m);
     }
 }

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-18 10:11+0200\n"
-"PO-Revision-Date: 2018-04-18 10:12+0200\n"
-"Last-Translator: Robert Engdahl <rje@accuratech.dk>\n"
+"POT-Creation-Date: 2018-06-19 11:39+0200\n"
+"PO-Revision-Date: 2018-06-19 12:11+0200\n"
+"Last-Translator: Robert Jørgensgaard Engdahl <rje@accuratech.dk>\n"
 "Language-Team: \n"
 "Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.0.8\n"
 "X-Poedit-Basepath: ../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: Localizer.Noop\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Luk dette vindue for at teste at den attachede behavior frigiver sine event-"
 "listeners fra culture-trackeren."
 
-#: MainWindow.xaml:36
+#: MainWindow.xaml:38
 msgid "Danish"
 msgstr "Dansk"
 
@@ -32,41 +32,56 @@ msgstr "Dansk"
 msgid "Deferred localization"
 msgstr "Udsat oversættelse"
 
-#: MainWindow.xaml:54
+#: MainWindow.xaml:56
 msgid "Deferred localization example:"
 msgstr "Eksempel på udsat oversættelse:"
 
-#: MainWindow.xaml:32
+#: MainWindow.xaml:34
 msgid "English"
 msgstr "Engelsk"
 
-#: MainWindow.xaml:34
+#: MainWindow.xaml:36
 msgid "German"
 msgstr "Tysk"
 
-#: MainWindow.xaml:44
+#: MainWindow.xaml:46
 msgid "Localized date time format example:"
 msgstr "Lokalformateret dato og klokkeslæt-eksempel:"
 
-#: MainWindow.xaml:49
+#: MainWindow.xaml:51
 msgid "Localized enum combo example:"
 msgstr "Lokalformateret enum-combobox-eksempel:"
 
-#: MainWindow.xaml:39
+#: MainWindow.xaml:41
 msgid "Localized number format example:"
 msgstr "Lokalformateret tal-eksempel:"
 
-#: MainWindow.xaml:67
+#: MainWindow.xaml:69
 msgid "Memory leak test progress:"
 msgstr "Memory-leak-testfremgang:"
 
-#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:22
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:92
 msgid "NGettext.WPF Example"
 msgstr "NGettext.WPF-eksempel"
 
-#: MainWindow.xaml:64
+#: MainWindow.xaml:66
 msgid "Run TrackCurrentCultureBehavior memory leak test"
 msgstr "Udfør TrackCurrentCultureBehavior memory-leak-test"
+
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:94
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:95
+msgid "Singular"
+msgid_plural "Plural"
+msgstr[0] "Ental"
+msgstr[1] "Flertal"
+
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:97
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:98
+#, csharp-format
+msgid "Singular {0:n3}"
+msgid_plural "Plural {0:n3}"
+msgstr[0] "Ental {0:n3}"
+msgstr[1] "Flertal {0:n3}"
 
 #: C:\Git\ngettext-wpf\NGettext.Wpf.Example\ExampleEnum.cs:10
 msgid "Some other value"
@@ -84,6 +99,6 @@ msgstr "En værdi"
 msgid "Varying cAsE ExamPle:"
 msgstr "Eksempel På VaRiAtiOn i store og små bogstavEr:"
 
-#: MainWindow.xaml:59
+#: MainWindow.xaml:60
 msgid "Varying case example:"
 msgstr "Eksempel på variation i store og små bogstaver:"

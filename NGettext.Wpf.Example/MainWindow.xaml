@@ -59,6 +59,8 @@
         </StackPanel>
         <TextBlock Text="{wpf:Gettext Varying case example:}" HorizontalAlignment="Center" />
         <TextBlock Text="{wpf:Gettext Varying cAsE ExamPle:}"  HorizontalAlignment="Center" />
+        <TextBlock Text="{Binding PluralGettext, ElementName=Window, Mode=OneWay}" HorizontalAlignment="Center"/>
+        <TextBlock Text="{Binding PluralGettextParams, ElementName=Window, Mode=OneWay}" HorizontalAlignment="Center"/>
 
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="40">
             <Button Content="{wpf:Gettext Run TrackCurrentCultureBehavior memory leak test}" Width="340"
