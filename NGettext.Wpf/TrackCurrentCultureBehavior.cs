@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Markup;
-using EventArgs = System.EventArgs;
 using System.Windows.Interactivity;
 
 namespace NGettext.Wpf
@@ -17,10 +16,7 @@ namespace NGettext.Wpf
     /// </summary>
     public class TrackCurrentCultureBehavior : Behavior<FrameworkElement>, IWeakCultureObserver
     {
-        /// <summary>
-        /// This property is subject to static property injection and must be set before instances
-        /// are attached to any FrameworkElement.
-        /// </summary>
+        [Obsolete("This public property will be removed in 1.1")]
         public static ICultureTracker CultureTracker { get; set; }
 
         protected override void OnAttached()
@@ -29,7 +25,8 @@ namespace NGettext.Wpf
             {
                 if (CultureTracker is null)
                 {
-                    throw new Exception("TrackCurrentCultureBehavior.CultureTracker must be initialized");
+                    CompositionRoot.WriteMissingInitializationErrorMessage();
+                    return;
                 }
                 CultureTracker.AddWeakCultureObserver(this);
                 UpdateAssociatedObjectCulture();

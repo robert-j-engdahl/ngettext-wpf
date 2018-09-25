@@ -57,10 +57,13 @@ namespace NGettext.Wpf.Example
                 await Task.Delay(TimeSpan.FromSeconds(1));
                 ++MemoryLeakTestProgress;
                 foreach (var locale in new[]
-                    {"da-DK", "de-DE", "en-US", TrackCurrentCultureBehavior.CultureTracker.CurrentCulture.Name})
+                    {"da-DK", "de-DE", "en-US", TrackCurrentCultureBehavior.CultureTracker?.CurrentCulture?.Name})
                 {
                     await Task.Delay(TimeSpan.FromSeconds(1));
-                    TrackCurrentCultureBehavior.CultureTracker.CurrentCulture = CultureInfo.GetCultureInfo(locale);
+                    if (TrackCurrentCultureBehavior.CultureTracker != null)
+                    {
+                        TrackCurrentCultureBehavior.CultureTracker.CurrentCulture = CultureInfo.GetCultureInfo(locale);
+                    }
 
                     ++MemoryLeakTestProgress;
                 }
@@ -89,12 +92,12 @@ namespace NGettext.Wpf.Example
 
         public string SomeDeferredLocalization => Translation._(_someDeferredLocalization);
 
-        public string Header => GettextExtension.Localizer.Catalog.GetString("NGettext.WPF Example");
+        public string Header => Translation._("NGettext.WPF Example");
 
-        public string PluralGettext => Translation.PluralGettext(1, "Singular", "Plural") + 
+        public string PluralGettext => Translation.PluralGettext(1, "Singular", "Plural") +
                                        "---" + Translation.PluralGettext(2, "Singular", "Plural");
 
-        public string PluralGettextParams => Translation.PluralGettext(1, "Singular {0:n3}", "Plural {0:n3}", 1m/3m) + 
+        public string PluralGettextParams => Translation.PluralGettext(1, "Singular {0:n3}", "Plural {0:n3}", 1m / 3m) +
                                              "---" + Translation.PluralGettext(2, "Singular {0:n3}", "Plural {0:n3}", 1m / 3m);
     }
 }

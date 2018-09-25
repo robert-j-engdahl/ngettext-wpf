@@ -17,5 +17,10 @@ namespace NGettext.Wpf
             LocalizeEnumConverter.EnumLocalizer = new EnumLocalizer(localizer);
             Translation.Localizer = localizer;
         }
+
+        internal static void WriteMissingInitializationErrorMessage()
+        {
+            System.Console.Error.WriteLine("NGettext.Wpf: NGettext.Wpf.CompositionRoot.Compose() must be called at the entry point of the application for localization to work");
+        }
     }
 }

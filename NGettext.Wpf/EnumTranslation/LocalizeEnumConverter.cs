@@ -10,7 +10,7 @@ namespace NGettext.Wpf.EnumTranslation
         {
             if (EnumLocalizer is null)
             {
-                Console.Error.WriteLine("LocalizeEnumConverter.EnumLocalizer was not initialized.  Localization disabled.");
+                CompositionRoot.WriteMissingInitializationErrorMessage();
                 return value;
             }
 
@@ -27,6 +27,7 @@ namespace NGettext.Wpf.EnumTranslation
             throw new NotImplementedException();
         }
 
+        [Obsolete("This public property will be removed in 1.1")]
         public static IEnumLocalizer EnumLocalizer { get; set; }
     }
 }

@@ -10,12 +10,13 @@ namespace NGettext.Wpf
         {
             if (Localizer is null)
             {
-                Console.Error.WriteLine("NGettext.WPF.Translation.Localizer not set.  Localization is disabled.");
+                CompositionRoot.WriteMissingInitializationErrorMessage();
                 return (@params.Any() ? string.Format(CultureInfo.InvariantCulture, msgId, @params) : msgId);
             }
             return @params.Any() ? Localizer.Catalog.GetString(msgId, @params) : Localizer.Catalog.GetString(msgId);
         }
 
+        [Obsolete("This public property will be removed in 1.1")]
         public static ILocalizer Localizer { get; set; }
 
         public static string Noop(string msgId) => msgId;
@@ -24,7 +25,7 @@ namespace NGettext.Wpf
         {
             if (Localizer is null)
             {
-                Console.Error.WriteLine("NGettext.WPF.Translation.Localizer not set.  Localization is disabled.");
+                CompositionRoot.WriteMissingInitializationErrorMessage();
                 return string.Format(CultureInfo.InvariantCulture, n == 1 ? singularMsgId : pluralMsgId, @params);
             }
 
