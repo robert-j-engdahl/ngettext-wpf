@@ -12,7 +12,7 @@ The `"ExampleDomainName"` string is the domain name.  This means that when the c
 
 Now you can do something like this in XAML:
 
-```XAML
+```xml
 <Button CommandParameter="en-US" 
         Command="{StaticResource ChangeCultureCommand}" 
         Content="{wpf:Gettext English}" />
@@ -28,6 +28,7 @@ PM> mkdir -p Locale\en-GB\LC_MESSAGES\
 PM> msginit --input=obj\result.pot --output-file=Locale\en-GB\LC_MESSAGES\ExampleDomainName.po --locale=en_GB
 ```
 
+---
 
 ## Conventions
 Keep your compiled translations in `"Locale\<LOCALE>\LC_MESSAGES\<DOMAIN>.mo"`.  This library will force you to follow this convention.  Or rather, NGettext forces you to follow a convention like `"<PATH_TO_LOCALES>\<LOCALE>\LC_MESSAGES\<DOMAIN>.mo"`, and I refined it.
@@ -35,4 +36,21 @@ Keep your compiled translations in `"Locale\<LOCALE>\LC_MESSAGES\<DOMAIN>.mo"`. 
 Keep your raw translations in `"Locale\<LOCALE>\LC_MESSAGES\<DOMAIN>.po"`.  This is not enforced, but when working with POEdit it will compile the `".mo"` file into the correct location when following this convention, and it doesn't remember your previous choice, so stick with the defaults.
 
 There are lots of GNU conventions related to internationalization (i18n) and localization (l10n).  One of them is that the notion that the original program is written in US English, so you don't need to translate anything to facilitate internationalization.  The original text in US English is called the `msgId`.
+
+---
+
+## Support
+
+Reach out to me at one of the following places!
+
+- Twitter at <a href="https://twitter.com/robert_engdahl" target="_blank">`@robert_engdahl`</a>
+- LinkedIn at <a href="https://www.linkedin.com/in/robertengdahl/" target="_blank">`robertengdahl`</a> 
+
+---
+
+## Sample Application
+
+In <a href="NGettext.Wpf.Example/">NGettext.Wpf.Example/</a> you will find a sample application that demonstrates all the features of this library.
+
+![Demo](demo.gif)
 
