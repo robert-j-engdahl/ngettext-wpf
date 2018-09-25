@@ -2,12 +2,10 @@
 Proper internationalization support for WPF (via NGettext)
 
 ## Getting Started
-NGettext.Wpf is intended to work with dependency injection.  A few static properties need to be initialized at the entry point of your application:
+NGettext.Wpf is intended to work with dependency injection.  You need to call the following at the entry point of your application:
 
 ```c#
-var cultureTracker = new CultureTracker();
-ChangeCultureCommand.CultureTracker = cultureTracker;
-GettextExtension.Localizer = new Localizer(cultureTracker, "ExampleDomainName");
+NGettext.Wpf.CompositionRoot.Compose("ExampleDomainName");
 ```
 
 The `"ExampleDomainName"` string is the domain name.  This means that when the current culture is set to `"da-DK"` translations will be loaded from `"Locale\da-DK\LC_MESSAGES\ExampleDomainName.mo"` relative to where your WPF app is running.

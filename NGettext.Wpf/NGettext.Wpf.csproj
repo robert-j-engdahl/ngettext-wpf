@@ -55,8 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChangeCultureCommand.cs" />
+    <Compile Include="CompositionRoot.cs" />
     <Compile Include="CultureEventArgs.cs" />
     <Compile Include="CultureTracker.cs" />
+    <Compile Include="NGettextWpfDependencyResolver.cs" />
     <Compile Include="EnumTranslation\EnumMsgIdAttribute.cs" />
     <Compile Include="EnumTranslation\EnumLocalizer.cs" />
     <Compile Include="EnumTranslation\LocalizeEnumConverter.cs" />
