@@ -16,7 +16,6 @@ namespace NGettext.Wpf
             return @params.Any() ? Localizer.Catalog.GetString(msgId, @params) : Localizer.Catalog.GetString(msgId);
         }
 
-        [Obsolete("This public property will be removed in 1.1")]
         public static ILocalizer Localizer { get; set; }
 
         public static string Noop(string msgId) => msgId;

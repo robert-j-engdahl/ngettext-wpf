@@ -28,7 +28,6 @@ namespace NGettext.Wpf
 
         public event EventHandler CanExecuteChanged;
 
-        [Obsolete("This public property will be removed in 1.1")]
         public static ICultureTracker CultureTracker { get; set; }
     }
 }

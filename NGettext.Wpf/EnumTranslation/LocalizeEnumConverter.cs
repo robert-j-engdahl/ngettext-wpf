@@ -34,7 +34,6 @@ namespace NGettext.Wpf.EnumTranslation
             throw new NotImplementedException();
         }
 
-        [Obsolete("This public property will be removed in 1.1")]
         public static IEnumLocalizer EnumLocalizer { get; set; }
 
         private IEnumLocalizer GetEnumLocalizer()

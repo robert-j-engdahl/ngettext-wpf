@@ -27,7 +27,6 @@ namespace NGettext.Wpf
             Params = @params;
         }
 
-        [Obsolete("This public property will be removed in 1.1")]
         public static ILocalizer Localizer { get; set; }
 
         public override object ProvideValue(IServiceProvider serviceProvider)

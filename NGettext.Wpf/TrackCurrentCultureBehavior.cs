@@ -16,7 +16,6 @@ namespace NGettext.Wpf
     /// </summary>
     public class TrackCurrentCultureBehavior : Behavior<FrameworkElement>, IWeakCultureObserver
     {
-        [Obsolete("This public property will be removed in 1.1")]
         public static ICultureTracker CultureTracker { get; set; }
 
         protected override void OnAttached()
