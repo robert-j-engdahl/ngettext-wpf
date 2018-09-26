@@ -43,9 +43,9 @@
             <TextBlock Text="{Binding SomeNumber, ElementName=Window, StringFormat={}{0:n2}, Mode=OneWay}" Width="220" />
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-            <TextBlock Text="{wpf:Gettext Localized date time format example:}" Width="280" TextAlignment="Right"
+            <TextBlock Text="{wpf:Gettext Localized date time format example:}" Width="310" TextAlignment="Right"
                        Margin="0,0,20,0" />
-            <TextBlock Text="{Binding CurrentTime, ElementName=Window, StringFormat={}{0:F}, Mode=OneWay}" Width="220" />
+            <TextBlock Text="{Binding CurrentTime, ElementName=Window, StringFormat={}{0:F}, Mode=OneWay}" Width="250" />
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
             <TextBlock Text="{wpf:Gettext Localized enum combo example:}" Width="280" TextAlignment="Right"
@@ -59,8 +59,8 @@
         </StackPanel>
         <TextBlock Text="{wpf:Gettext Varying case example:}" HorizontalAlignment="Center" />
         <TextBlock Text="{wpf:Gettext Varying cAsE ExamPle:}"  HorizontalAlignment="Center" />
-        <TextBlock Text="{Binding PluralGettext, ElementName=Window, Mode=OneWay}" HorizontalAlignment="Center"/>
-        <TextBlock Text="{Binding PluralGettextParams, ElementName=Window, Mode=OneWay}" HorizontalAlignment="Center"/>
+        <TextBlock Text="{Binding PluralGettext, ElementName=Window, Mode=OneWay}" HorizontalAlignment="Center" />
+        <TextBlock Text="{Binding PluralGettextParams, ElementName=Window, Mode=OneWay}" HorizontalAlignment="Center" />
 
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="40">
             <Button Content="{wpf:Gettext Run TrackCurrentCultureBehavior memory leak test}" Width="340"

@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using NGettext.Wpf.EnumTranslation;
 
 namespace NGettext.Wpf.Example
 {
@@ -7,19 +6,8 @@ namespace NGettext.Wpf.Example
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            CompositionRoot();
+            CompositionRoot.Compose("Example");
             base.OnStartup(e);
-        }
-
-        private static void CompositionRoot()
-        {
-            var cultureTracker = new CultureTracker();
-            ChangeCultureCommand.CultureTracker = cultureTracker;
-            var localizer = new Localizer(cultureTracker, "Example");
-            GettextExtension.Localizer = localizer;
-            TrackCurrentCultureBehavior.CultureTracker = cultureTracker;
-            LocalizeEnumConverter.EnumLocalizer = new EnumLocalizer(localizer);
-            Translation.Localizer = localizer;
         }
     }
 }
