@@ -8,7 +8,7 @@ NGettext.Wpf is intended to work with dependency injection.  You need to call th
 NGettext.Wpf.CompositionRoot.Compose("ExampleDomainName");
 ```
 
-The `"ExampleDomainName"` string is the domain name.  This means that when the current culture is set to `"da-DK"` translations will be loaded from `"Locale\da-DK\LC_MESSAGES\ExampleDomainName.mo"` relative to where your WPF app is running.
+The `"ExampleDomainName"` string is the domain name.  This means that when the current culture is set to `"da-DK"` translations will be loaded from `"Locale\da-DK\LC_MESSAGES\ExampleDomainName.mo"` relative to where your WPF app is running (You must include the .mo files in your application and make sure they are copied to the output directory).
 
 Now you can do something like this in XAML:
 
@@ -45,6 +45,7 @@ Reach out to me at one of the following places!
 
 - Twitter at <a href="https://twitter.com/robert_engdahl" target="_blank">`@robert_engdahl`</a>
 - LinkedIn at <a href="https://www.linkedin.com/in/robertengdahl/" target="_blank">`robertengdahl`</a> 
+- or create an <a href="https://github.com/robert-j-engdahl/ngettext-wpf/issues">issue</a>
 
 ---
 
