@@ -8,14 +8,14 @@ namespace NGettext.Wpf.Tests.EnumTranslation
     public class LocalizeEnumConverterTest
     {
         private readonly IEnumLocalizer _enumLocalizer = Substitute.For<IEnumLocalizer>();
-        private readonly LocalizeEnumConverter _target = new LocalizeEnumConverter();
+        private readonly IValueConverter _target;
 
         public LocalizeEnumConverterTest()
         {
-            LocalizeEnumConverter.EnumLocalizer = _enumLocalizer;
+            _target = new LocalizeEnumConverter(_enumLocalizer);
         }
 
-        public enum TestEnum
+        private enum TestEnum
         {
             EnumValue,
         }
@@ -25,7 +25,7 @@ namespace NGettext.Wpf.Tests.EnumTranslation
         {
             _enumLocalizer.LocalizeEnum(Arg.Is(TestEnum.EnumValue)).Returns("localized value");
 
-            var actual = Assert.IsAssignableFrom<IValueConverter>(_target).Convert(TestEnum.EnumValue, null, null, null);
+            var actual = _target.Convert(TestEnum.EnumValue, null, null, null);
 
             Assert.Equal("localized value", actual);
         }
@@ -35,6 +35,16 @@ namespace NGettext.Wpf.Tests.EnumTranslation
         {
             var actual = Assert.IsAssignableFrom<IValueConverter>(_target).Convert(null, null, null, null);
             Assert.Null(actual);
+        }
+
+        [Fact]
+        public void Nothing_Bad_Happens_When_There_Is_No_Enum_Localizer()
+        {
+            var target = new LocalizeEnumConverter(null);
+
+            var actual = target.Convert(TestEnum.EnumValue, null, null, null);
+
+            Assert.Equal(TestEnum.EnumValue, actual);
         }
     }
 }
