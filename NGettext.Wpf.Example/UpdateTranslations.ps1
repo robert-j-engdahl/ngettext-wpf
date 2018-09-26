@@ -1,7 +1,7 @@
 # Invoke this script fron the Nuget package manager console.  CD into the directory of this script before invoking.
 
 # gettext tools don't setup their path correctly yet, so here is a work-around
-$env:Path += ";..\packages\gettext.Tools.0.19.8.1\tools\bin"
+$env:Path += ";..\packages\Gettext.Tools.0.19.8.1\tools\bin"
 
 # Extract msgids from xaml files in project into pot file.  If you installed NGettext.Wpf via nuget you can source like so:
 #   . XGetText-Xaml.ps1
