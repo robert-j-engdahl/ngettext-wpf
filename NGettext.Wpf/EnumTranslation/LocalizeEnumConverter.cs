@@ -8,7 +8,11 @@ namespace NGettext.Wpf.EnumTranslation
     {
         private IEnumLocalizer _enumLocalizer;
 
-        public LocalizeEnumConverter(IEnumLocalizer enumLocalizer = null)
+        public LocalizeEnumConverter()
+        {
+        }
+
+        public LocalizeEnumConverter(IEnumLocalizer enumLocalizer)
         {
             _enumLocalizer = enumLocalizer;
         }

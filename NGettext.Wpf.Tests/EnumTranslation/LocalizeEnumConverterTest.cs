@@ -40,7 +40,7 @@ namespace NGettext.Wpf.Tests.EnumTranslation
         [Fact]
         public void Nothing_Bad_Happens_When_There_Is_No_Enum_Localizer()
         {
-            var target = new LocalizeEnumConverter(null);
+            var target = new LocalizeEnumConverter();
 
             var actual = target.Convert(TestEnum.EnumValue, null, null, null);
 

@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>NGettext.Wpf</id>
-    <version>1.0.18-alpha</version>
+    <version>1.0.20-alpha</version>
     <title>WPF support for NGettext</title>
     <authors>Robert Jørgensgaard Engdahl</authors>
     <owners>Robert Jørgensgaard Engdahl</owners>
