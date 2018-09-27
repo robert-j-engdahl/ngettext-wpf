@@ -10,7 +10,6 @@
     <projectUrl>https://github.com/robert-j-engdahl/ngettext-wpf</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Proper internationalization support for WPF (via NGettext).  In particular a GetTextMarkupExtension is included, which is what everyone uses anyway.</description>
-    <releaseNotes>CompsitionRoot.Compose("ExampleDomain") for simple initialization.</releaseNotes>
     <copyright>Copyright 2017, 2018 Robert Jørgensgaard Engdahl</copyright>
     <tags>gettext wpf ngettext gettextmarkupextension xgettext-xaml</tags>
     <dependencies>
