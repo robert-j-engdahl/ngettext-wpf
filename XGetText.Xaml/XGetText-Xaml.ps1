@@ -26,6 +26,11 @@
             $lineNumber = $_.LineNumber
             $_.Matches | ForEach-Object {
                 $msgid = $_.Groups[1].ToString()
+				#Remove quotes if the string starts and ends with quotes to support https://github.com/robert-j-engdahl/ngettext-wpf/issues/18
+                if ($msgid.StartsWith("'") -and $msgid.endsWith("'")){
+                    $msgid  = $msgid.Substring(1, $msgid.Length-2);
+                }
+
                 if (-Not $msgids.ContainsKey($msgid))
                 {
                    $msgids.Add($msgid, @{Locations = New-Object System.Collections.ArrayList})
