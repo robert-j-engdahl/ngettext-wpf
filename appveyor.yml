@@ -7,7 +7,7 @@ build:
 test:
   assemblies:
     only:
-    - NGettext.Wpf.Tests.dll
+    - '**\*.Tests.dll'
     
 install:
   - cinst pester
