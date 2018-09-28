@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 11:39+0200\n"
-"PO-Revision-Date: 2018-06-19 12:13+0200\n"
+"POT-Creation-Date: 2018-09-28 11:35+0200\n"
+"PO-Revision-Date: 2018-09-28 11:43+0200\n"
 "Last-Translator: Robert Jørgensgaard Engdahl <rje@accuratech.dk>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.8\n"
+"X-Generator: Poedit 2.1.1\n"
 "X-Poedit-Basepath: ../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: Localizer.Noop\n"
@@ -30,11 +30,20 @@ msgstr "Dänisch"
 
 #: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:17
 msgid "Deferred localization"
-msgstr "aufgeschobene Übersetzung"
+msgstr "Aaufgeschobene Übersetzung"
 
 #: MainWindow.xaml:56
 msgid "Deferred localization example:"
-msgstr "Beispiel von aufgeschobene Übersetzung"
+msgstr "Beispiel von aufgeschobene Übersetzung:"
+
+#: MainWindow.xaml:65
+msgid "Enclosing single-quotes (') are optional"
+msgstr "Einschließende einfache Anführungszeichen (') sind optional"
+
+#: MainWindow.xaml:66
+msgid "Enclosing single-quotes (apostrophes) are optional."
+msgstr ""
+"Einschließende einfache Anführungszeichen (Apostrophe) sind optional."
 
 #: MainWindow.xaml:34
 msgid "English"
@@ -56,27 +65,27 @@ msgstr "Lokalisierte Enum-Combobox-Beispiel:"
 msgid "Localized number format example:"
 msgstr "Lokales Zahlenformatbeispiel:"
 
-#: MainWindow.xaml:69
+#: MainWindow.xaml:72
 msgid "Memory leak test progress:"
 msgstr "Speicherlecktestfortschritt:"
 
-#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:92
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:95
 msgid "NGettext.WPF Example"
 msgstr "NGettext.WPF-Beispiel"
 
-#: MainWindow.xaml:66
+#: MainWindow.xaml:69
 msgid "Run TrackCurrentCultureBehavior memory leak test"
 msgstr "Den TrackCurrentCultureBehavior-Speicherlecktest ausführen"
 
-#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:94
-#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:95
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:97
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:98
 msgid "Singular"
 msgid_plural "Plural"
 msgstr[0] "Singular"
 msgstr[1] "Plural"
 
-#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:97
-#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:98
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:100
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:101
 #, csharp-format
 msgid "Singular {0:n3}"
 msgid_plural "Plural {0:n3}"
@@ -95,10 +104,15 @@ msgstr "Ein dritter Wert"
 msgid "Some value"
 msgstr "Ein gewisser Wert"
 
+#: MainWindow.xaml:67
+msgid "Unenclosed escaped single-quotes (') are supported."
+msgstr ""
+"Unclosed maskierte einfache Anführungszeichen (') werden unterstützt."
+
 #: MainWindow.xaml:61
 msgid "Varying cAsE ExamPle:"
-msgstr "Beispiel von Variation zwiScHen Groß- und KleInBUchstaBen"
+msgstr "Beispiel von Variation zwiScHen Groß- und KleInBUchstaBen:"
 
 #: MainWindow.xaml:60
 msgid "Varying case example:"
-msgstr "Beispiel von Variation zwischen Groß- und Kleinbuchstaben"
+msgstr "Beispiel von Variation zwischen Groß- und Kleinbuchstaben:"

@@ -9,7 +9,7 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
 
         Title="{Binding ElementName=Window, Path=Header}"
-        mc:Ignorable="d" Height="350" Width="525" x:Name="Window">
+        mc:Ignorable="d" Height="400" Width="525" x:Name="Window">
     <Window.Resources>
         <!-- The following ensures all enum values are translated when displayed -->
         <enumTranslation:LocalizeEnumConverter x:Key="LocalizeEnumConverter" />
@@ -61,7 +61,10 @@
         <TextBlock Text="{wpf:Gettext Varying cAsE ExamPle:}"  HorizontalAlignment="Center" />
         <TextBlock Text="{Binding PluralGettext, ElementName=Window, Mode=OneWay}" HorizontalAlignment="Center" />
         <TextBlock Text="{Binding PluralGettextParams, ElementName=Window, Mode=OneWay}" HorizontalAlignment="Center" />
-
+        <!-- Note that escaped single-quotes are not supported by the VS designer at the time of writing -->
+        <!--<TextBlock Text="{wpf:Gettext 'Enclosing single-quotes (\') are optional'}"  HorizontalAlignment="Center" />-->
+        <TextBlock Text="{wpf:Gettext 'Enclosing single-quotes (apostrophes) are optional.'}"  HorizontalAlignment="Center" />
+        <TextBlock Text="{wpf:Gettext Unenclosed escaped single-quotes (\') are supported.}"  HorizontalAlignment="Center" />
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="40">
             <Button Content="{wpf:Gettext Run TrackCurrentCultureBehavior memory leak test}" Width="340"
                     Click="OpenMemoryLeakTestWindow" Margin="15,4,15,4" />

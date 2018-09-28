@@ -31,6 +31,8 @@
                     $msgid  = $msgid.Substring(1, $msgid.Length-2);
                 }
 
+                $msgid = $msgid.Replace("\'", "'")
+
                 if (-Not $msgids.ContainsKey($msgid))
                 {
                    $msgids.Add($msgid, @{Locations = New-Object System.Collections.ArrayList})

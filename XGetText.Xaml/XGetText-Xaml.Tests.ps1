@@ -32,6 +32,7 @@ Describe "XGetText-Xaml" {
                     ToolTip="{wpf:Gettext Danish}" />
             <TextBlock Text="{wpf:Gettext Quotes are optional}"/>
             <TextBlock Text="{wpf:Gettext ''Quotes are optional''}"/>
+            <TextBlock Text="{wpf:Gettext Escaped single-quotes (\'') are supported.}"/>
         </StackPanel>
     </Grid>
 </Window>'
@@ -62,5 +63,9 @@ Describe "XGetText-Xaml" {
     It "Quotes are optional" {
         XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("#: TestFile.xaml:28" + [System.Environment]::NewLine + "#: TestFile.xaml:29" + [System.Environment]::NewLine +"msgid ""Quotes are optional"""))
     }
-    
+
+    It "Supports escaped single-quotes" {
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("msgid ""Escaped single-quotes (') are supported."""))
+    }
+
 }
