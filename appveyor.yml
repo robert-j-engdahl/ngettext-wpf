@@ -3,6 +3,9 @@ install:
 
 before_build:
   - nuget restore
+  
+build:
+  project: NGettext.Wpf.sln  
 
 test_script:
   - ps: $res = Invoke-Pester -Path "." -OutputFormat NUnitXml -OutputFile TestsResults.xml -PassThru
