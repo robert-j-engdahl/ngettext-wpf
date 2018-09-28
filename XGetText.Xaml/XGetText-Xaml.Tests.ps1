@@ -30,6 +30,8 @@ Describe "XGetText-Xaml" {
             <Button CommandParameter="da-DK" Command="{StaticResource ChangeCultureCommand}"
                     Content="{wpf:Gettext Danish}" 
                     ToolTip="{wpf:Gettext Danish}" />
+            <TextBlock Text="{wpf:Gettext Quotes are optional}"/>
+            <TextBlock Text="{wpf:Gettext ''Quotes are optional''}"/>
         </StackPanel>
     </Grid>
 </Window>'
@@ -55,6 +57,10 @@ Describe "XGetText-Xaml" {
     It "Writes output to specified file" {
         XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o TestDrive:\Output.pot
         'TestDrive:\Output.pot' | Should -FileContentMatchMultiline '#, fuzzy\nmsgid ""\nmsgstr ""'
+    }
+
+    It "Quotes are optional" {
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("#: TestFile.xaml:28" + [System.Environment]::NewLine + "#: TestFile.xaml:29" + [System.Environment]::NewLine +"msgid ""Quotes are optional"""))
     }
     
 }
