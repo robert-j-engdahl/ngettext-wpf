@@ -33,6 +33,7 @@ Describe "XGetText-Xaml" {
             <TextBlock Text="{wpf:Gettext Quotes are optional}"/>
             <TextBlock Text="{wpf:Gettext ''Quotes are optional''}"/>
             <TextBlock Text="{wpf:Gettext Escaped single-quotes (\'') are supported.}"/>
+            <TextBlock Text="{wpf:Gettext Unicode™ in msgIds is supported.}"  />
         </StackPanel>
     </Grid>
 </Window>'
@@ -50,13 +51,13 @@ Describe "XGetText-Xaml" {
     }
 
     It "Does not ignore casing of msgids when joining" {
-        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o TestDrive:\Output.pot
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o $TestDrive\Output.pot
         "TestDrive:\Output.pot" | Should -FileContentMatchExactly "^msgid ""German""$"
         "TestDrive:\Output.pot" | Should -FileContentMatchExactly "^msgid ""german""$"
     }
 
     It "Writes output to specified file" {
-        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o TestDrive:\Output.pot
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o $TestDrive\Output.pot
         'TestDrive:\Output.pot' | Should -FileContentMatchMultiline '#, fuzzy\nmsgid ""\nmsgstr ""'
     }
 
@@ -66,6 +67,15 @@ Describe "XGetText-Xaml" {
 
     It "Supports escaped single-quotes" {
         XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("msgid ""Escaped single-quotes (') are supported."""))
+    }
+
+    It "Supports unicode in msgIds when writing to stdout" {
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("msgid ""Unicode™ in msgIds is supported."""))
+    }
+
+    It "Supports unicode in msgIds when writing to .pot" {
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o $TestDrive\Output.pot
+        'TestDrive:\Output.pot' | Should -FileContentMatchExactly "msgid ""Unicode™ in msgIds is supported."""
     }
 
 }
