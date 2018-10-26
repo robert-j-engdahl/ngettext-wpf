@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace NGettext.Wpf
 {
     public static class Translation
     {
+        [StringFormatMethod("msgId")]
         public static string _(string msgId, params object[] @params)
         {
             if (Localizer is null)
@@ -20,6 +22,8 @@ namespace NGettext.Wpf
 
         public static string Noop(string msgId) => msgId;
 
+        [StringFormatMethod("singularMsgId")]
+        [StringFormatMethod("pluralMsgId")] //< not yet supported, #1833369.
         public static string PluralGettext(int n, string singularMsgId, string pluralMsgId, params object[] @params)
         {
             if (Localizer is null)

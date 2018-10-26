@@ -64,6 +64,7 @@
     <Compile Include="EnumTranslation\LocalizeEnumConverter.cs" />
     <Compile Include="GettextExtension.cs" />
     <Compile Include="IWeakCultureObserver.cs" />
+    <Compile Include="ResharperAnnotations.cs" />
     <Compile Include="TrackCurrentCultureBehavior.cs" />
     <Compile Include="Localizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
