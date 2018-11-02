@@ -36,6 +36,7 @@ namespace NGettext.Wpf
 
         private void UpdateAssociatedObjectCulture()
         {
+            if (AssociatedObject is null) return;
             AssociatedObject.Language = XmlLanguage.GetLanguage(CultureTracker.CurrentCulture.IetfLanguageTag);
         }
 
