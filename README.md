@@ -49,6 +49,7 @@ Reach out to me at one of the following places!
 
 - Twitter at <a href="https://twitter.com/robert_engdahl" target="_blank">`@robert_engdahl`</a>
 - LinkedIn at <a href="https://www.linkedin.com/in/robertengdahl/" target="_blank">`robertengdahl`</a> 
+- Create a question on <a href="https://stackoverflow.com/questions/ask?tags=ngettext.wpf">Stack Overflow</a>
 - or create an <a href="https://github.com/robert-j-engdahl/ngettext-wpf/issues">issue</a>
 
 ---
