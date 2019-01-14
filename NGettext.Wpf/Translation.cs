@@ -44,5 +44,31 @@ namespace NGettext.Wpf
                 ? Localizer.Catalog.GetPluralString(singularMsgId, pluralMsgId, n, @params)
                 : Localizer.Catalog.GetPluralString(singularMsgId, pluralMsgId, n);
         }
+
+        [StringFormatMethod("text")]
+        [StringFormatMethod("pluralText")] //< not yet supported, #1833369.
+        public static string GetParticularPluralString(string context, string text, string pluralText, int n, params object[] args)
+        {
+            if (Localizer is null)
+            {
+                CompositionRoot.WriteMissingInitializationErrorMessage();
+                return string.Format(CultureInfo.InvariantCulture, n == 1 ? text : pluralText, args);
+            }
+
+            return args.Any()
+                ? Localizer.Catalog.GetParticularPluralString(context, text, pluralText, n, args)
+                : Localizer.Catalog.GetParticularPluralString(context, text, pluralText, n);
+        }
+
+        [StringFormatMethod("text")]
+        public static string GetParticularString(string context, string text, params object[] args)
+        {
+            if (Localizer is null)
+            {
+                CompositionRoot.WriteMissingInitializationErrorMessage();
+                return (args.Any() ? string.Format(CultureInfo.InvariantCulture, text, args) : text);
+            }
+            return args.Any() ? Localizer.Catalog.GetParticularString(context, text, args) : Localizer.Catalog.GetParticularString(context, text);
+        }
     }
 }
