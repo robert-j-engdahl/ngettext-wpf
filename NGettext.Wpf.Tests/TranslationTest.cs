@@ -75,7 +75,7 @@ namespace NGettext.Wpf.Tests
         {
             _localizer.Catalog.GetPluralString(singularMsgId, pluralMsgId, n).Returns(expectedTranslation);
 
-            Assert.Equal(expectedTranslation, Translation.GetPluralString(n, singularMsgId, pluralMsgId));
+            Assert.Equal(expectedTranslation, Translation.GetPluralString(singularMsgId, pluralMsgId, n));
         }
 
         [Theory]
@@ -87,7 +87,7 @@ namespace NGettext.Wpf.Tests
         {
             Translation.Localizer = null;
 
-            Assert.Equal(expectedResult, Translation.GetPluralString(n, singularMsgId, pluralMsgId));
+            Assert.Equal(expectedResult, Translation.GetPluralString(singularMsgId, pluralMsgId, n));
         }
 
         [Theory]
@@ -96,7 +96,7 @@ namespace NGettext.Wpf.Tests
         {
             _localizer.Catalog.GetPluralString(singularMsgId, pluralMsgId, n, @params).Returns(expectedTranslation);
 
-            Assert.Equal(expectedTranslation, Translation.GetPluralString(n, singularMsgId, pluralMsgId, @params));
+            Assert.Equal(expectedTranslation, Translation.GetPluralString(singularMsgId, pluralMsgId, n, @params));
         }
 
         [Theory]
@@ -108,7 +108,7 @@ namespace NGettext.Wpf.Tests
         {
             Translation.Localizer = null;
 
-            Assert.Equal(expectedResult, Translation.GetPluralString(n, singularMsgId, pluralMsgId, @params));
+            Assert.Equal(expectedResult, Translation.GetPluralString(singularMsgId, pluralMsgId, n, @params));
         }
 
         [Theory]

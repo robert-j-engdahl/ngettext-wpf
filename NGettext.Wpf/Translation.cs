@@ -27,21 +27,21 @@ namespace NGettext.Wpf
         [Obsolete("Use GetPluralString() instead.  This method will be removed in 1.2.")]
         public static string PluralGettext(int n, string singularMsgId, string pluralMsgId, params object[] @params)
         {
-            return GetPluralString(n, singularMsgId, pluralMsgId, @params);
+            return GetPluralString(singularMsgId, pluralMsgId, n, @params);
         }
 
         [StringFormatMethod("singularMsgId")]
         [StringFormatMethod("pluralMsgId")] //< not yet supported, #1833369.
-        public static string GetPluralString(int n, string singularMsgId, string pluralMsgId, params object[] @params)
+        public static string GetPluralString(string singularMsgId, string pluralMsgId, int n, params object[] args)
         {
             if (Localizer is null)
             {
                 CompositionRoot.WriteMissingInitializationErrorMessage();
-                return string.Format(CultureInfo.InvariantCulture, n == 1 ? singularMsgId : pluralMsgId, @params);
+                return string.Format(CultureInfo.InvariantCulture, n == 1 ? singularMsgId : pluralMsgId, args);
             }
 
-            return @params.Any()
-                ? Localizer.Catalog.GetPluralString(singularMsgId, pluralMsgId, n, @params)
+            return args.Any()
+                ? Localizer.Catalog.GetPluralString(singularMsgId, pluralMsgId, n, args)
                 : Localizer.Catalog.GetPluralString(singularMsgId, pluralMsgId, n);
         }
 
