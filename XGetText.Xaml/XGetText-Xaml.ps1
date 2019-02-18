@@ -16,10 +16,8 @@
     [Alias("o")]
     [string]$output="messages.pot")
 
-
-  
-
-    $msgids = New-Object -TypeName System.Collections.Hashtable
+    $extractedIds = New-Object -TypeName System.Collections.Hashtable
+	
     $sourceFiles | ForEach-Object {
         Select-String $_ -Pattern $("""{[a-z]?[a-z0-9]*:"+$Keywords[0]+ " ([^}]*)}""") -AllMatches | ForEach-Object {
             $filename = $_.Filename
@@ -33,11 +31,11 @@
 
                 $msgid = $msgid.Replace("\'", "'")
 
-                if (-Not $msgids.ContainsKey($msgid))
+                if (-Not $extractedIds.ContainsKey($msgid))
                 {
-                   $msgids.Add($msgid, @{Locations = New-Object System.Collections.ArrayList})
+                   $extractedIds.Add($msgid, @{Locations = New-Object System.Collections.ArrayList})
                 }
-                [void] $msgids[$msgid].Locations.Add('#: ' + $Filename + ':' + $LineNumber)
+                [void] $extractedIds[$msgid].Locations.Add('#: ' + $Filename + ':' + $LineNumber)
             }
         } 
     }
@@ -50,8 +48,18 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n\n"' + [System.Environment]::NewLine + [System.Environment]::NewLine
 
-    $msgids.GetEnumerator() | ForEach-Object {
-        $result = $result + $($_.Value.Locations -join [System.Environment]::NewLine) + [System.Environment]::NewLine + "msgid """ + $_.Key + """" + [System.Environment]::NewLine + "msgstr """"" + [System.Environment]::NewLine + [System.Environment]::NewLine
+    $extractedIds.GetEnumerator() | ForEach-Object {
+		
+		if ($_.Key -like '*|*' ) {
+			$msgid = $_.Key.Substring($_.Key.indexof("|") +1)
+			$msgctxt = $_.Key.Substring(0, $_.Key.indexof("|"))
+
+			$result = $result + $($_.Value.Locations -join [System.Environment]::NewLine) + [System.Environment]::NewLine + "msgctxt """ + $msgctxt + """" + [System.Environment]::NewLine + "msgid """ + $msgid + """" + [System.Environment]::NewLine + "msgstr """"" + [System.Environment]::NewLine + [System.Environment]::NewLine + [System.Environment]::NewLine
+		}
+		else {
+			$result = $result + $($_.Value.Locations -join [System.Environment]::NewLine) + [System.Environment]::NewLine + "msgid """ + $_.Key + """" + [System.Environment]::NewLine + "msgstr """"" + [System.Environment]::NewLine + [System.Environment]::NewLine + [System.Environment]::NewLine
+		}
+        
     }
 
     if ($output -eq '-') {

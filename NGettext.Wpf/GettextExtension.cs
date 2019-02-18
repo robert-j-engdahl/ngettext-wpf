@@ -55,6 +55,13 @@ namespace NGettext.Wpf
                 return MsgId;
             }
 
+            if (MsgId.Contains("|"))
+            {
+                var array = MsgId.Split('|');
+
+                return Localizer.Catalog.GetParticularString(array.First(), string.Join("|", array.Skip(1)));
+            }
+
             return Params.Any() ? Localizer.Catalog.GetString(MsgId, Params) : Localizer.Catalog.GetString(MsgId);
         }
 
