@@ -7,9 +7,9 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:enumTranslation="clr-namespace:NGettext.Wpf.EnumTranslation;assembly=NGettext.Wpf"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
-
+        SizeToContent="Height"
         Title="{Binding ElementName=Window, Path=Header}"
-        mc:Ignorable="d" Height="400" Width="525" x:Name="Window">
+        mc:Ignorable="d"  Width="525" x:Name="Window">
     <Window.Resources>
         <!-- The following ensures all enum values are translated when displayed -->
         <enumTranslation:LocalizeEnumConverter x:Key="LocalizeEnumConverter" />
