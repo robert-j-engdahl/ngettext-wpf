@@ -53,6 +53,20 @@ namespace NGettext.Wpf.Tests
         }
 
         [StaFact]
+        public void ProvideValue_Returns_Text_For_MsgId_With_Glib_Style_Context()
+        {
+            var msgId = "msgid";
+            var text = "translation";
+            var target = new GettextExtension("some|context|msgid");
+            GettextExtension.Localizer = Substitute.For<ILocalizer>();
+            var context = "some|context";
+            GettextExtension.Localizer.Catalog.GetParticularString(Arg.Is(context),Arg.Is(msgId)).Returns(text);
+
+            Assert.Equal(text, target.ProvideValue(_serviceProvider));
+        }
+
+
+        [StaFact]
         public void ProvideValue_Returns_Text_For_MsgId_With_Params()
         {
             var msgId = "msgid";
