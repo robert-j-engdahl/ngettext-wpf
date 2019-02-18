@@ -55,11 +55,11 @@ namespace NGettext.Wpf.Tests
         [StaFact]
         public void ProvideValue_Returns_Text_For_MsgId_With_Glib_Style_Context()
         {
-            var msgId = "msgid";
+            var msgId = "test|msgid";
             var text = "translation";
-            var target = new GettextExtension("some|context|msgid");
+            var target = new GettextExtension("some|test|msgid");
             GettextExtension.Localizer = Substitute.For<ILocalizer>();
-            var context = "some|context";
+            var context = "some";
             GettextExtension.Localizer.Catalog.GetParticularString(Arg.Is(context),Arg.Is(msgId)).Returns(text);
 
             Assert.Equal(text, target.ProvideValue(_serviceProvider));

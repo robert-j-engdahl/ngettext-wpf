@@ -20,6 +20,7 @@
   
 
     $msgids = New-Object -TypeName System.Collections.Hashtable
+	$contexts = New-Object -TypeName System.Collections.Hashtable
     $sourceFiles | ForEach-Object {
         Select-String $_ -Pattern $("""{[a-z]?[a-z0-9]*:"+$Keywords[0]+ " ([^}]*)}""") -AllMatches | ForEach-Object {
             $filename = $_.Filename
@@ -32,6 +33,11 @@
                 }
 
                 $msgid = $msgid.Replace("\'", "'")
+
+				if ($msgid -like '*|*') {
+					$contexts.Add($msgid.Substring($msgid.indexof("|") +1), $msgid.Substring(0, $msgid.indexof("|")));
+					$msgid = $msgid.Substring($msgid.indexof("|") +1);
+				}
 
                 if (-Not $msgids.ContainsKey($msgid))
                 {
@@ -51,7 +57,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n\n"' + [System.Environment]::NewLine + [System.Environment]::NewLine
 
     $msgids.GetEnumerator() | ForEach-Object {
-        $result = $result + $($_.Value.Locations -join [System.Environment]::NewLine) + [System.Environment]::NewLine + "msgid """ + $_.Key + """" + [System.Environment]::NewLine + "msgstr """"" + [System.Environment]::NewLine + [System.Environment]::NewLine
+		if ($contexts.ContainsKey($_.Key)) {
+			$result = $result + $($_.Value.Locations -join [System.Environment]::NewLine) + [System.Environment]::NewLine + "msgctxt """ + $contexts[$_.Key] + """" + [System.Environment]::NewLine + "msgid """ + $_.Key + """" + [System.Environment]::NewLine + "msgstr """"" + [System.Environment]::NewLine + [System.Environment]::NewLine + [System.Environment]::NewLine
+		}
+		else {
+			$result = $result + $($_.Value.Locations -join [System.Environment]::NewLine) + [System.Environment]::NewLine + "msgid """ + $_.Key + """" + [System.Environment]::NewLine + "msgstr """"" + [System.Environment]::NewLine + [System.Environment]::NewLine + [System.Environment]::NewLine
+		}
+        
     }
 
     if ($output -eq '-') {

@@ -59,7 +59,7 @@ namespace NGettext.Wpf
             {
                 var array = MsgId.Split('|');
 
-                return Localizer.Catalog.GetParticularString(string.Join("|", array.Take(array.Length - 1).ToArray()), array.Last());
+                return Localizer.Catalog.GetParticularString(array.First(), string.Join("|", array.Skip(1)));
             }
 
             return Params.Any() ? Localizer.Catalog.GetString(MsgId, Params) : Localizer.Catalog.GetString(MsgId);
