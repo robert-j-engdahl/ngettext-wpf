@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-18 14:03+0100\n"
-"PO-Revision-Date: 2019-02-18 12:31+0100\n"
+"POT-Creation-Date: 2019-02-18 14:06+0100\n"
+"PO-Revision-Date: 2019-02-18 14:18+0100\n"
 "Last-Translator: Robert Jørgensgaard Engdahl <rje@accuratech.dk>\n"
 "Language-Team: \n"
 "Language: da_DK\n"
@@ -17,7 +17,6 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: MemoryLeakTestWindow.xaml:15
-#, fuzzy
 msgid ""
 "Close this window to test that the attached behavior releases its event "
 "listeners from the culture tracker."
@@ -26,7 +25,6 @@ msgstr ""
 "listeners fra culture-trackeren."
 
 #: MainWindow.xaml:38
-#, fuzzy
 msgid "Danish"
 msgstr "Dansk"
 
@@ -35,53 +33,43 @@ msgid "Deferred localization"
 msgstr "Udsat oversættelse"
 
 #: MainWindow.xaml:56
-#, fuzzy
 msgid "Deferred localization example:"
 msgstr "Eksempel på udsat oversættelse:"
 
 #: MainWindow.xaml:65
-#, fuzzy
 msgid "Enclosing single-quotes (') are optional"
 msgstr "Indhyllende apostroffer (') er valgfrie"
 
 #: MainWindow.xaml:66
-#, fuzzy
 msgid "Enclosing single-quotes (apostrophes) are optional."
 msgstr "Inhyllende apostroffer er valgfrie."
 
 #: MainWindow.xaml:34
-#, fuzzy
 msgid "English"
 msgstr "Engelsk"
 
 #: MainWindow.xaml:68
-#, fuzzy
 msgctxt "Example"
-msgid "GNOME glib syntax context example1"
+msgid "GNOME glib syntax context example"
 msgstr "GNOME glib syntaks-context-eksempel"
 
 #: MainWindow.xaml:36
-#, fuzzy
 msgid "German"
 msgstr "Tysk"
 
 #: MainWindow.xaml:46
-#, fuzzy
 msgid "Localized date time format example:"
 msgstr "Lokalformateret dato og klokkeslæt-eksempel:"
 
 #: MainWindow.xaml:51
-#, fuzzy
 msgid "Localized enum combo example:"
 msgstr "Lokalformateret enum-combobox-eksempel:"
 
 #: MainWindow.xaml:41
-#, fuzzy
 msgid "Localized number format example:"
 msgstr "Lokalformateret tal-eksempel:"
 
 #: MainWindow.xaml:73
-#, fuzzy
 msgid "Memory leak test progress:"
 msgstr "Memory-leak-testfremgang:"
 
@@ -90,7 +78,6 @@ msgid "NGettext.WPF Example"
 msgstr "NGettext.WPF-eksempel"
 
 #: MainWindow.xaml:70
-#, fuzzy
 msgid "Run TrackCurrentCultureBehavior memory leak test"
 msgstr "Udfør TrackCurrentCultureBehavior memory-leak-test"
 
@@ -122,17 +109,14 @@ msgid "Some value"
 msgstr "En værdi"
 
 #: MainWindow.xaml:67
-#, fuzzy
 msgid "Unenclosed escaped single-quotes (') are supported."
 msgstr "Ikke-inhyllende, escapede apostroffer (') er understøttet."
 
 #: MainWindow.xaml:61
-#, fuzzy
 msgid "Varying cAsE ExamPle:"
 msgstr "Eksempel På VaRiAtiOn i store og små bogstavEr:"
 
 #: MainWindow.xaml:60
-#, fuzzy
 msgid "Varying case example:"
 msgstr "Eksempel på variation i store og små bogstaver:"
 
