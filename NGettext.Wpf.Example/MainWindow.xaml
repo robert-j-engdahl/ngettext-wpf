@@ -9,7 +9,7 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         SizeToContent="Height"
         Title="{Binding ElementName=Window, Path=Header}"
-        mc:Ignorable="d"  Width="525" x:Name="Window">
+        mc:Ignorable="d" Width="525" x:Name="Window">
     <Window.Resources>
         <!-- The following ensures all enum values are translated when displayed -->
         <enumTranslation:LocalizeEnumConverter x:Key="LocalizeEnumConverter" />
@@ -65,6 +65,7 @@
         <!--<TextBlock Text="{wpf:Gettext 'Enclosing single-quotes (\') are optional'}"  HorizontalAlignment="Center" />-->
         <TextBlock Text="{wpf:Gettext 'Enclosing single-quotes (apostrophes) are optional.'}"  HorizontalAlignment="Center" />
         <TextBlock Text="{wpf:Gettext Unenclosed escaped single-quotes (\') are supported.}"  HorizontalAlignment="Center" />
+        <TextBlock Text="{wpf:Gettext Unicode™ in msgIds is supported}"  HorizontalAlignment="Center" />
         <TextBlock Text="{wpf:Gettext Example|GNOME glib syntax context example}" HorizontalAlignment="Center"/>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="40">
             <Button Content="{wpf:Gettext Run TrackCurrentCultureBehavior memory leak test}" Width="340"
