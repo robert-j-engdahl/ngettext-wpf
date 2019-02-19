@@ -3,7 +3,7 @@ $sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path) -replace '\.Tests\.', '.'
 . "$here\$sut"
 
 Describe "XGetText-Xaml" {
-    Set-Content -Path TestDrive:\TestFile.xaml -Value '<Window x:Class="NGettext.Wpf.Example.MainWindow"
+    Set-Content -Path TestDrive:\TestFile.xaml -Encoding 'UTF8' -Value '<Window x:Class="NGettext.Wpf.Example.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"

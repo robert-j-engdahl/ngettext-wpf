@@ -66,7 +66,7 @@ msgstr ""
         Write-Output $result.ToString() 
     }
     else {
-        $result -replace "\r", "" | Out-File -Encoding 'ascii' -NoNewline $output   
+		[System.IO.File]::WriteAllLines($ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($output), ($result -replace "\r", ""))
     }
 
 }
