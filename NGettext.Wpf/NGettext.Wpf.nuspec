@@ -6,7 +6,7 @@
     <title>WPF support for NGettext</title>
     <authors>Robert Jørgensgaard Engdahl</authors>
     <owners>Robert Jørgensgaard Engdahl</owners>
-    <licenseUrl>https://github.com/robert-j-engdahl/ngettext-wpf/blob/master/LICENSE</licenseUrl>
+    <license type="expression">LGPL-3.0-or-later</license>
     <projectUrl>https://github.com/robert-j-engdahl/ngettext-wpf</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Proper internationalization support for WPF (via NGettext).  In particular a GetTextMarkupExtension is included, which is what everyone uses anyway.</description>
