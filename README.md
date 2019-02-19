@@ -4,6 +4,8 @@ Proper internationalization support for WPF (via NGettext)
 [![Build status](https://ci.appveyor.com/api/projects/status/s344j6n3gpvjxjof?svg=true)](https://ci.appveyor.com/project/robert-j-engdahl/ngettext-wpf)
 
 ## Getting Started
+Get the NuGet from here <a href="https://www.nuget.org/packages/NGettext.Wpf/">https://www.nuget.org/packages/NGettext.Wpf/</a>.
+
 NGettext.Wpf is intended to work with dependency injection.  You need to call the following at the entry point of your application:
 
 ```c#
@@ -47,6 +49,7 @@ Reach out to me at one of the following places!
 
 - Twitter at <a href="https://twitter.com/robert_engdahl" target="_blank">`@robert_engdahl`</a>
 - LinkedIn at <a href="https://www.linkedin.com/in/robertengdahl/" target="_blank">`robertengdahl`</a> 
+- Create a question on <a href="https://stackoverflow.com/questions/ask?tags=ngettext.wpf">Stack Overflow</a>.  Use the tag `ngettext.wpf`.
 - or create an <a href="https://github.com/robert-j-engdahl/ngettext-wpf/issues">issue</a>
 
 ---

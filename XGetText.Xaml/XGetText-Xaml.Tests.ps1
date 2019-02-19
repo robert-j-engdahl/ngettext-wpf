@@ -34,6 +34,8 @@ Describe "XGetText-Xaml" {
             <TextBlock Text="{wpf:Gettext ''Quotes are optional''}"/>
             <TextBlock Text="{wpf:Gettext Escaped single-quotes (\'') are supported.}"/>
             <TextBlock Text="{wpf:Gettext Unicode™ in msgIds is supported.}"  />
+            <TextBlock Text="{wpf:Gettext Sequential ordering|Order}" />
+            <TextBlock Text="{wpf:Gettext Placing an order|Order}" />
         </StackPanel>
     </Grid>
 </Window>'
@@ -44,6 +46,11 @@ Describe "XGetText-Xaml" {
 
     It "Annotates msgid with filename and line number" {
         XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("#: TestFile.xaml:8" + [System.Environment]::NewLine + "msgid ""NGettext.WPF Example""")) 
+    }
+
+	It "Annotates msgid with msgctxt" {
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("msgctxt ""Sequential ordering""" + [System.Environment]::NewLine + "msgid ""Order""")) 
+		XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("msgctxt ""Placing an order""" + [System.Environment]::NewLine + "msgid ""Order""")) 
     }
 
     It "Joins matching msgids" {

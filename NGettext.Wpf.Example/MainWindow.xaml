@@ -66,6 +66,7 @@
         <TextBlock Text="{wpf:Gettext 'Enclosing single-quotes (apostrophes) are optional.'}"  HorizontalAlignment="Center" />
         <TextBlock Text="{wpf:Gettext Unenclosed escaped single-quotes (\') are supported.}"  HorizontalAlignment="Center" />
         <TextBlock Text="{wpf:Gettext Unicode™ in msgIds is supported}"  HorizontalAlignment="Center" />
+        <TextBlock Text="{wpf:Gettext Example|GNOME glib syntax context example}" HorizontalAlignment="Center"/>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="40">
             <Button Content="{wpf:Gettext Run TrackCurrentCultureBehavior memory leak test}" Width="340"
                     Click="OpenMemoryLeakTestWindow" Margin="15,4,15,4" />
