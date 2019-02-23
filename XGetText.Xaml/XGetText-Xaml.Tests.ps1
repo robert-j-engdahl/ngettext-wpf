@@ -36,6 +36,7 @@ Describe "XGetText-Xaml" {
             <TextBlock Text="{wpf:Gettext Unicode™ in msgIds is supported.}"  />
             <TextBlock Text="{wpf:Gettext Sequential ordering|Order}" />
             <TextBlock Text="{wpf:Gettext Placing an order|Order}" />
+	        <TextBlock Text="{wpf:Gettext Text with punctuation: 1\, 2\, 3.}" />
         </StackPanel>
     </Grid>
 </Window>'
@@ -85,4 +86,8 @@ Describe "XGetText-Xaml" {
         'TestDrive:\Output.pot' | Should -FileContentMatchExactly "msgid ""Unicode™ in msgIds is supported."""
     }
 
+	It "Supports escaped commas" {
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o $TestDrive\Output.pot
+        'TestDrive:\Output.pot' | Should -FileContentMatchExactly "msgid ""Text with punctuation: 1\, 2\, 3."""
+    }
 }

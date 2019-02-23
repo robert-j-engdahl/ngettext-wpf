@@ -30,6 +30,7 @@
                 }
 
                 $msgid = $msgid.Replace("\'", "'")
+				$msgid = $msgid.Replace("\,", ",")
 
                 if (-Not $extractedIds.ContainsKey($msgid))
                 {
