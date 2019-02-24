@@ -32,17 +32,20 @@ namespace NGettext.Wpf
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
             var provideValueTarget = (IProvideValueTarget)serviceProvider.GetService(typeof(IProvideValueTarget));
-            _dependencyObject = (DependencyObject)provideValueTarget.TargetObject;
-            if (DesignerProperties.GetIsInDesignMode(_dependencyObject))
+            if (provideValueTarget.TargetObject is DependencyObject dependencyObject)
             {
-                return string.Format(MsgId, Params);
+                _dependencyObject = dependencyObject;
+                if (DesignerProperties.GetIsInDesignMode(_dependencyObject))
+                {
+                    return string.Format(MsgId, Params);
+                }
+
+                AttachToCultureChangedEvent();
+
+                _dependencyProperty = (DependencyProperty)provideValueTarget.TargetProperty;
+
+                KeepGettextExtensionAliveForAsLongAsDependencyObject();
             }
-
-            AttachToCultureChangedEvent();
-
-            _dependencyProperty = (DependencyProperty)provideValueTarget.TargetProperty;
-
-            KeepGettextExtensionAliveForAsLongAsDependencyObject();
 
             return Gettext();
         }

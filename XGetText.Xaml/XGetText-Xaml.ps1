@@ -19,7 +19,7 @@
     $extractedIds = New-Object -TypeName System.Collections.Hashtable
 	
     $sourceFiles | ForEach-Object {
-        Select-String $_ -Pattern $("""{[a-z]?[a-z0-9]*:"+$Keywords[0]+ " ([^}]*)}""") -AllMatches | ForEach-Object {
+        Select-String $_ -Pattern $("{[a-z]?[a-z0-9]*:"+$Keywords[0]+ " (([^}{]|{[^}]*})*)}") -AllMatches | ForEach-Object {
             $filename = $_.Filename
             $lineNumber = $_.LineNumber
             $_.Matches | ForEach-Object {
