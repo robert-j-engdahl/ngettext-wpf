@@ -10,12 +10,7 @@ namespace NGettext.Wpf
         [StringFormatMethod("msgId")]
         public static string _(string msgId, params object[] @params)
         {
-            if (Localizer is null)
-            {
-                CompositionRoot.WriteMissingInitializationErrorMessage();
-                return (@params.Any() ? string.Format(CultureInfo.InvariantCulture, msgId, @params) : msgId);
-            }
-            return @params.Any() ? Localizer.Catalog.GetString(msgId, @params) : Localizer.Catalog.GetString(msgId);
+            return @params.Any() ? Localizer.Gettext(msgId, @params) : Localizer.Gettext(msgId);
         }
 
         public static ILocalizer Localizer { get; set; }
