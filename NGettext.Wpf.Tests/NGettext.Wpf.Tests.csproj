@@ -129,6 +129,7 @@
     <Compile Include="Asserts\StringAsserts.cs" />
     <Compile Include="Asserts\TypeAsserts.cs" />
     <Compile Include="ChangeCultureCommandTest.cs" />
+    <Compile Include="Common\GettextStringFormatConverterTest.cs" />
     <Compile Include="CultureEventArgsTest.cs" />
     <Compile Include="CultureTrackerTest.cs" />
     <Compile Include="EnumTranslation\EnumLocalizerTest.cs" />

@@ -1,4 +1,5 @@
-﻿using NGettext.Wpf.EnumTranslation;
+﻿using NGettext.Wpf.Common;
+using NGettext.Wpf.EnumTranslation;
 
 namespace NGettext.Wpf
 {
@@ -16,6 +17,7 @@ namespace NGettext.Wpf
             TrackCurrentCultureBehavior.CultureTracker = cultureTracker;
             LocalizeEnumConverter.EnumLocalizer = new EnumLocalizer(localizer);
             Translation.Localizer = localizer;
+            GettextStringFormatConverter.Localizer = localizer;
         }
 
         internal static void WriteMissingInitializationErrorMessage()
