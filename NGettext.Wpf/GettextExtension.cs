@@ -1,8 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Markup;
+using NGettext.Wpf.Common;
 
 namespace NGettext.Wpf
 {
@@ -32,37 +35,31 @@ namespace NGettext.Wpf
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
             var provideValueTarget = (IProvideValueTarget)serviceProvider.GetService(typeof(IProvideValueTarget));
-            _dependencyObject = (DependencyObject)provideValueTarget.TargetObject;
-            if (DesignerProperties.GetIsInDesignMode(_dependencyObject))
+            if (provideValueTarget.TargetObject is DependencyObject dependencyObject)
             {
-                return string.Format(MsgId, Params);
+                _dependencyObject = dependencyObject;
+                if (DesignerProperties.GetIsInDesignMode(_dependencyObject))
+                {
+                    return string.Format(MsgId, Params);
+                }
+
+                AttachToCultureChangedEvent();
+
+                _dependencyProperty = (DependencyProperty)provideValueTarget.TargetProperty;
+
+                KeepGettextExtensionAliveForAsLongAsDependencyObject();
             }
-
-            AttachToCultureChangedEvent();
-
-            _dependencyProperty = (DependencyProperty)provideValueTarget.TargetProperty;
-
-            KeepGettextExtensionAliveForAsLongAsDependencyObject();
+            else
+            {
+                System.Console.WriteLine("NGettext.Wpf: Target object of type {0} is not yet implemented", provideValueTarget.TargetObject?.GetType());
+            }
 
             return Gettext();
         }
 
         private string Gettext()
         {
-            if (Localizer is null)
-            {
-                CompositionRoot.WriteMissingInitializationErrorMessage();
-                return MsgId;
-            }
-
-            if (MsgId.Contains("|"))
-            {
-                var array = MsgId.Split('|');
-
-                return Localizer.Catalog.GetParticularString(array.First(), string.Join("|", array.Skip(1)));
-            }
-
-            return Params.Any() ? Localizer.Catalog.GetString(MsgId, Params) : Localizer.Catalog.GetString(MsgId);
+            return Params.Any() ? Localizer.Gettext(MsgId, Params) : Localizer.Gettext(MsgId);
         }
 
         private void KeepGettextExtensionAliveForAsLongAsDependencyObject()

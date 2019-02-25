@@ -37,6 +37,7 @@ Describe "XGetText-Xaml" {
             <TextBlock Text="{wpf:Gettext Sequential ordering|Order}" />
             <TextBlock Text="{wpf:Gettext Placing an order|Order}" />
 	        <TextBlock Text="{wpf:Gettext Text with punctuation: 1\, 2\, 3.}" />
+	        <TextBlock Text="{Binding Path=Counter,ElementName=Window, Converter={wpf:GettextFormatConverter Binding string format support: {0:n0}}}"/>
         </StackPanel>
     </Grid>
 </Window>'
@@ -89,5 +90,9 @@ Describe "XGetText-Xaml" {
 	It "Supports escaped commas" {
         XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o $TestDrive\Output.pot
         'TestDrive:\Output.pot' | Should -FileContentMatchExactly "msgid ""Text with punctuation: 1\, 2\, 3."""
+    }
+
+	It "Supports Binding.StringFormat" {
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext,GettextFormatConverter -o - | Should -Match ([regex]::Escape("msgid ""Binding string format support: {0:n0}"""))
     }
 }

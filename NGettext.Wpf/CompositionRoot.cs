@@ -1,8 +1,9 @@
-﻿using NGettext.Wpf.EnumTranslation;
+﻿using NGettext.Wpf.Common;
+using NGettext.Wpf.EnumTranslation;
 
 namespace NGettext.Wpf
 {
-    public class CompositionRoot
+    public static class CompositionRoot
     {
         public static void Compose(string domainName, NGettextWpfDependencyResolver dependencyResolver = null)
         {
@@ -16,6 +17,7 @@ namespace NGettext.Wpf
             TrackCurrentCultureBehavior.CultureTracker = cultureTracker;
             LocalizeEnumConverter.EnumLocalizer = new EnumLocalizer(localizer);
             Translation.Localizer = localizer;
+            GettextStringFormatConverter.Localizer = localizer;
         }
 
         internal static void WriteMissingInitializationErrorMessage()

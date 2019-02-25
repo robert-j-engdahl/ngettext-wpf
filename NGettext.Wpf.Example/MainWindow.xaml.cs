@@ -15,6 +15,7 @@ namespace NGettext.Wpf.Example
         private int _memoryLeakTestProgress;
         private DateTime _currentTime;
         private readonly string _someDeferredLocalization = Translation.Noop("Deferred localization");
+        private int _counter;
 
         public MainWindow()
         {
@@ -22,6 +23,7 @@ namespace NGettext.Wpf.Example
 
             var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(0.1) };
             timer.Tick += (sender, args) => { CurrentTime = DateTime.Now; };
+            timer.Tick += (sender, args) => { Counter = (Counter + 1) % 1000; };
             timer.Start();
         }
 
@@ -99,5 +101,15 @@ namespace NGettext.Wpf.Example
 
         public string PluralGettextParams => Translation.PluralGettext(1, "Singular {0:n3}", "Plural {0:n3}", 1m / 3m) +
                                              "---" + Translation.PluralGettext(2, "Singular {0:n3}", "Plural {0:n3}", 1m / 3m);
+
+        public int Counter
+        {
+            get => _counter;
+            set
+            {
+                _counter = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Counter)));
+            }
+        }
     }
 }

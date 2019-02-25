@@ -44,4 +44,53 @@ namespace NGettext.Wpf
             CultureTracker.CultureChanging -= ResetCatalog;
         }
     }
+
+    public static class LocalizerExtensions
+    {
+        internal static string Gettext(this ILocalizer @this, string msgId, params object[] values)
+        {
+            string context = null;
+            if (msgId.Contains("|"))
+            {
+                var pipePosition = msgId.IndexOf('|');
+                context = msgId.Substring(0, pipePosition);
+                msgId = msgId.Substring(pipePosition + 1);
+            }
+
+            if (@this is null)
+            {
+                CompositionRoot.WriteMissingInitializationErrorMessage();
+                return string.Format(msgId, values);
+            }
+
+            if (context != null)
+            {
+                return @this.Catalog.GetParticularString(context, msgId, values);
+            }
+            return @this.Catalog.GetString(msgId, values);
+        }
+
+        internal static string Gettext(this ILocalizer @this, string msgId)
+        {
+            string context = null;
+            if (msgId.Contains("|"))
+            {
+                var pipePosition = msgId.IndexOf('|');
+                context = msgId.Substring(0, pipePosition);
+                msgId = msgId.Substring(pipePosition + 1);
+            }
+
+            if (@this is null)
+            {
+                CompositionRoot.WriteMissingInitializationErrorMessage();
+                return msgId;
+            }
+
+            if (context != null)
+            {
+                return @this.Catalog.GetParticularString(context, msgId);
+            }
+            return @this.Catalog.GetString(msgId);
+        }
+    }
 }

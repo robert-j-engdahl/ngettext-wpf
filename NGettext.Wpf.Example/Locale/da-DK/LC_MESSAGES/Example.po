@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-23 22:37+0100\n"
-"PO-Revision-Date: 2019-02-23 22:38+0100\n"
+"POT-Creation-Date: 2019-02-24 23:17+0100\n"
+"PO-Revision-Date: 2019-02-24 23:17+0100\n"
 "Last-Translator: Robert Engdahl <rje@accuratech.dk>\n"
 "Language-Team: \n"
 "Language: da_DK\n"
@@ -15,6 +15,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: Localizer.Noop\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: MainWindow.xaml:71
+msgid "Binding string format support: {0:n0}"
+msgstr "Binding-string-format-understøttelse: {0:n0}"
 
 #: MemoryLeakTestWindow.xaml:15
 msgid ""
@@ -69,27 +73,27 @@ msgstr "Lokalformateret enum-combobox-eksempel:"
 msgid "Localized number format example:"
 msgstr "Lokalformateret tal-eksempel:"
 
-#: MainWindow.xaml:75
+#: MainWindow.xaml:76
 msgid "Memory leak test progress:"
 msgstr "Memory-leak-testfremgang:"
 
-#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:95
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:97
 msgid "NGettext.WPF Example"
 msgstr "NGettext.WPF-eksempel"
 
-#: MainWindow.xaml:72
+#: MainWindow.xaml:73
 msgid "Run TrackCurrentCultureBehavior memory leak test"
 msgstr "Udfør TrackCurrentCultureBehavior memory-leak-test"
 
-#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:97
-#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:98
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:99
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:100
 msgid "Singular"
 msgid_plural "Plural"
 msgstr[0] "Ental"
 msgstr[1] "Flertal"
 
-#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:100
-#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:101
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:102
+#: C:\Git\ngettext-wpf\NGettext.Wpf.Example\MainWindow.xaml.cs:103
 #, csharp-format
 msgid "Singular {0:n3}"
 msgid_plural "Plural {0:n3}"
