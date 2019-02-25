@@ -18,28 +18,32 @@
 
     $extractedIds = New-Object -TypeName System.Collections.Hashtable
 	
-    $sourceFiles | ForEach-Object {
-        Select-String $_ -Pattern $("{[a-z]?[a-z0-9]*:"+$Keywords[0]+ " (([^}{]|{[^}]*})*)}") -AllMatches | ForEach-Object {
-            $filename = $_.Filename
-            $lineNumber = $_.LineNumber
-            $_.Matches | ForEach-Object {
-                $msgid = $_.Groups[1].ToString()
+	ForEach ($keyword in $Keywords)
+	{
+		$sourceFiles | ForEach-Object {
+			Select-String $_ -Pattern $("{[a-z]?[a-z0-9]*:"+$keyword+ " (([^}{]|{[^}]*})*)}") -AllMatches | ForEach-Object {
+				$filename = $_.Filename
+				$lineNumber = $_.LineNumber
+				$_.Matches | ForEach-Object {
+					$msgid = $_.Groups[1].ToString()
 
-                if ($msgid.StartsWith("'") -and $msgid.EndsWith("'")){
-                    $msgid  = $msgid.Substring(1, $msgid.Length-2);
-                }
+					if ($msgid.StartsWith("'") -and $msgid.EndsWith("'")){
+						$msgid  = $msgid.Substring(1, $msgid.Length-2);
+					}
 
-                $msgid = $msgid.Replace("\'", "'")
-				$msgid = $msgid.Replace("\,", ",")
+					$msgid = $msgid.Replace("\'", "'")
+					$msgid = $msgid.Replace("\,", ",")
 
-                if (-Not $extractedIds.ContainsKey($msgid))
-                {
-                   $extractedIds.Add($msgid, @{Locations = New-Object System.Collections.ArrayList})
-                }
-                [void] $extractedIds[$msgid].Locations.Add('#: ' + $Filename + ':' + $LineNumber)
-            }
-        } 
-    }
+					if (-Not $extractedIds.ContainsKey($msgid))
+					{
+					   $extractedIds.Add($msgid, @{Locations = New-Object System.Collections.ArrayList})
+					}
+					[void] $extractedIds[$msgid].Locations.Add('#: ' + $Filename + ':' + $LineNumber)
+				}
+			} 
+		}
+	}
+    
 
     $result = '#, fuzzy
 msgid ""
