@@ -7,7 +7,7 @@ $env:Path += ";..\packages\Gettext.Tools.0.19.8.1\tools\bin"
 #   . XGetText-Xaml.ps1
 # instead of the following
 . ../XGetText.Xaml/XGetText-Xaml.ps1
-XGetText-Xaml -o obj/xamlmessages.pot -k Gettext @(Get-ChildItem -Recurse -File -Filter *.xaml | Where { $_.FullName -NotLike '*\obj\*' } | ForEach-Object { $_.FullName })
+XGetText-Xaml -o obj/xamlmessages.pot -k Gettext,GettextFormatConverter @(Get-ChildItem -Recurse -File -Filter *.xaml | Where { $_.FullName -NotLike '*\obj\*' } | ForEach-Object { $_.FullName })
 
 Get-ChildItem -Recurse -File -Filter *.cs | Where { $_.FullName -NotLike '*\obj\*' } | ForEach-Object { $_.FullName } | Out-File -Encoding ascii "obj\csharpfiles"
 

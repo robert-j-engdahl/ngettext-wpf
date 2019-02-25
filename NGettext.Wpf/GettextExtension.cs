@@ -49,11 +49,6 @@ namespace NGettext.Wpf
 
                 KeepGettextExtensionAliveForAsLongAsDependencyObject();
             }
-            else if (provideValueTarget.TargetProperty is PropertyInfo propertyInfo &&
-                     propertyInfo.PropertyType.IsAssignableFrom(typeof(IValueConverter)))
-            {
-                return new GettextStringFormatConverter(MsgId);
-            }
             else
             {
                 System.Console.WriteLine("NGettext.Wpf: Target object of type {0} is not yet implemented", provideValueTarget.TargetObject?.GetType());

@@ -68,7 +68,7 @@
         <TextBlock Text="{wpf:Gettext Unicode™ in msgIds is supported}"  HorizontalAlignment="Center" />
         <TextBlock Text="{wpf:Gettext Example|GNOME glib syntax context example}" HorizontalAlignment="Center" />
         <TextBlock Text="{wpf:Gettext Text with punctuation: 1\, 2\, 3}" HorizontalAlignment="Center" />
-        <TextBlock Text="{Binding Path=Counter,ElementName=Window, Converter={wpf:Gettext Binding string format support: {0:n0}}}" HorizontalAlignment="Center" />
+        <TextBlock Text="{Binding Path=Counter,ElementName=Window, Converter={wpf:GettextFormatConverter Binding string format support: {0:n0}}}" HorizontalAlignment="Center" />
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="40">
             <Button Content="{wpf:Gettext Run TrackCurrentCultureBehavior memory leak test}" Width="340"
                     Click="OpenMemoryLeakTestWindow" Margin="15,4,15,4" />
