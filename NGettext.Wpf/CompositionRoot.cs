@@ -3,7 +3,7 @@ using NGettext.Wpf.EnumTranslation;
 
 namespace NGettext.Wpf
 {
-    public class CompositionRoot
+    public static class CompositionRoot
     {
         public static void Compose(string domainName, NGettextWpfDependencyResolver dependencyResolver = null)
         {
