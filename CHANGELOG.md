@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.1-alpha] - 2019-02-27
+## Fixed
+ - Wrong binaries released with 1.2.0-alpha.
+
 ## [1.2.0-alpha] - 2019-02-27
 ### Added
 - [#30](https://github.com/robert-j-engdahl/ngettext-wpf/issues/30)`GettextFormatConverter` XAML extension.
