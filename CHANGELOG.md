@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.0-alpha] - 2019-02-19
 ### Deprecated
-- `Translation.PluralGettext()` will be replaced by `Translation.GetPluralString()` in 1.2.
+- `Translation.PluralGettext()` will be replaced by `Translation.GetPluralString()` in 2.x
 
 ### Changed
 - `Gettext` XAML extension follows Gnome GLib style context syntax.
