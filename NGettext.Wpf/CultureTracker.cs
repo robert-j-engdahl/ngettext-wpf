@@ -6,7 +6,7 @@ namespace NGettext.Wpf
 {
     public interface ICultureTracker
     {
-        [Obsolete("Use AddWeakCultureObserver() instead.  Otherwise the culture tracker (which is probably a singleton) will keep your object alive for longer than it needs to.")]
+        [Obsolete("Use AddWeakCultureObserver() instead.  Otherwise the culture tracker (which is probably a singleton) will keep your object alive for longer than it needs to.   This method will be removed in 2.x")]
         event EventHandler<CultureEventArgs> CultureChanged;
 
         event EventHandler<CultureEventArgs> CultureChanging;
