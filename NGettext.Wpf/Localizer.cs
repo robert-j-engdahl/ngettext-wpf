@@ -47,50 +47,62 @@ namespace NGettext.Wpf
 
     public static class LocalizerExtensions
     {
-        internal static string Gettext(this ILocalizer @this, string msgId, params object[] values)
+        private struct MsgIdWithContext
         {
-            string context = null;
+            internal string Context { get; set; }
+            internal string MsgId { get; set; }
+        }
+
+        private static MsgIdWithContext ConvertToMsgIdWithContext(string msgId)
+        {
+            var result = new MsgIdWithContext { MsgId = msgId };
+
             if (msgId.Contains("|"))
             {
                 var pipePosition = msgId.IndexOf('|');
-                context = msgId.Substring(0, pipePosition);
-                msgId = msgId.Substring(pipePosition + 1);
+                result.Context = msgId.Substring(0, pipePosition);
+                result.MsgId = msgId.Substring(pipePosition + 1);
             }
+
+            return result;
+        }
+
+        internal static string Gettext(this ILocalizer @this, string msgId, params object[] values)
+        {
+            if (msgId is null) return null;
+
+            var msgIdWithContext = ConvertToMsgIdWithContext(msgId);
 
             if (@this is null)
             {
                 CompositionRoot.WriteMissingInitializationErrorMessage();
-                return string.Format(msgId, values);
+                return string.Format(msgIdWithContext.MsgId, values);
             }
 
-            if (context != null)
+            if (msgIdWithContext.Context != null)
             {
-                return @this.Catalog.GetParticularString(context, msgId, values);
+                return @this.Catalog.GetParticularString(msgIdWithContext.Context, msgIdWithContext.MsgId, values);
             }
-            return @this.Catalog.GetString(msgId, values);
+            return @this.Catalog.GetString(msgIdWithContext.MsgId, values);
         }
 
         internal static string Gettext(this ILocalizer @this, string msgId)
         {
-            string context = null;
-            if (msgId.Contains("|"))
-            {
-                var pipePosition = msgId.IndexOf('|');
-                context = msgId.Substring(0, pipePosition);
-                msgId = msgId.Substring(pipePosition + 1);
-            }
+            if (msgId is null) return null;
+
+            var msgIdWithContext = ConvertToMsgIdWithContext(msgId);
 
             if (@this is null)
             {
                 CompositionRoot.WriteMissingInitializationErrorMessage();
-                return msgId;
+                return msgIdWithContext.MsgId;
             }
 
-            if (context != null)
+            if (msgIdWithContext.Context != null)
             {
-                return @this.Catalog.GetParticularString(context, msgId);
+                return @this.Catalog.GetParticularString(msgIdWithContext.Context, msgIdWithContext.MsgId);
             }
-            return @this.Catalog.GetString(msgId);
+            return @this.Catalog.GetString(msgIdWithContext.MsgId);
         }
     }
 }

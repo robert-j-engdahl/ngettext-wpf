@@ -20,6 +20,22 @@ namespace NGettext.Wpf.Tests
         }
 
         [Fact]
+        public void Underscore_Does_Not_Crash_When_MsgId_Is_Null()
+        {
+            var e = Record.Exception(() => Translation._(null));
+
+            Assert.Null(e);
+        }
+
+        [Fact]
+        public void Underscore_With_Args_Does_Not_Crash_When_MsgId_Is_Null()
+        {
+            var e = Record.Exception(() => Translation._(null, 1, 2, 3));
+
+            Assert.Null(e);
+        }
+
+        [Fact]
         public void Underscore_Allows_String_Interpolation()
         {
             _localizer.Catalog.GetString(Arg.Is("foo {0} bar {1} baz"), Arg.Is(0xdead), Arg.Is(0xbeef))
