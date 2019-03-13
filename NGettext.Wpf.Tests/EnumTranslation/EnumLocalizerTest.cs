@@ -23,11 +23,15 @@ namespace NGettext.Wpf.Tests.EnumTranslation
             AnotherEnumValue,
 
             EnumValueWithoutMsgId,
+
+            [EnumMsgId("ActionType|None")]
+            None
         }
 
         [Theory]
         [InlineData(TestEnum.EnumValue, "enum value")]
         [InlineData(TestEnum.AnotherEnumValue, "another enum value")]
+        [InlineData(TestEnum.None, "None")]
         public void Translates_MsgId_Of_Enum_Value(TestEnum enumValue, string msgId)
         {
             _localizer.Catalog.GetString(Arg.Is(msgId)).Returns("expected translation");

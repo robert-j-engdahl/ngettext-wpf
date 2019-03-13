@@ -6,6 +6,10 @@ namespace NGettext.Wpf.EnumTranslation
     {
         public EnumMsgIdAttribute(string msgId)
         {
+            if (msgId.Contains("|"))
+            {
+                msgId = msgId.Substring(msgId.IndexOf("|") + 1);
+            }
             MsgId = msgId;
         }
 
