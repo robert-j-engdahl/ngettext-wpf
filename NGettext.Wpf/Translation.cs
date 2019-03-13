@@ -19,7 +19,7 @@ namespace NGettext.Wpf
 
         [StringFormatMethod("singularMsgId")]
         [StringFormatMethod("pluralMsgId")] //< not yet supported, #1833369.
-        [Obsolete("Use GetPluralString() instead.  This method will be removed in 1.2.")]
+        [Obsolete("Use GetPluralString() instead.  This method will be removed in 2.x")]
         public static string PluralGettext(int n, string singularMsgId, string pluralMsgId, params object[] @params)
         {
             return GetPluralString(singularMsgId, pluralMsgId, n, @params);

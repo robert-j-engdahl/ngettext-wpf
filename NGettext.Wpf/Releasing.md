@@ -3,12 +3,10 @@
 
  - Update the `.nuspec` file with a new version number.
  - Build in release mode
- - Invoke `PM> nuget pack`; no options needed.
+ - Invoke `PM> nuget pack`; no options needed.  But it will release the debug version, so make sure your build configuration match!
  - Sign the created package, for example by
    ```
-   PM> nuget sign .\NGettext.Wpf.1.1.0-alpha.nupkg 
-       -Timestamper http://timestamp.digicert.com 
-       -CertificateFingerprint 79a047643b02e7b677d5d0a962bc02ac19e63ca8
+   PM> nuget sign .\NGettext.Wpf.1.1.0-alpha.nupkg -Timestamper http://timestamp.digicert.com -CertificateFingerprint 79a047643b02e7b677d5d0a962bc02ac19e63ca8
    ```
  - Verify signing with
    ```
