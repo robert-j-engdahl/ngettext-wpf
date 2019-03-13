@@ -3,6 +3,8 @@ Proper internationalization support for WPF (via NGettext)
 
 [![Build status](https://ci.appveyor.com/api/projects/status/s344j6n3gpvjxjof?svg=true)](https://ci.appveyor.com/project/robert-j-engdahl/ngettext-wpf)
 
+![LGPL](https://www.gnu.org/graphics/lgplv3-88x31.png)
+
 ## Getting Started
 Get the NuGet from here <a href="https://www.nuget.org/packages/NGettext.Wpf/">https://www.nuget.org/packages/NGettext.Wpf/</a>.
 
