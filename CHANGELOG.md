@@ -6,10 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.3-alpha] - 2019-03-18
+## Fixed
+- [#37](https://github.com/robert-j-engdahl/ngettext-wpf/issues/37) GNOME glib syntax for `[EnumMsgId]` attribute.
+
 ## [1.2.2-alpha] - 2019-02-27
 ## Fixed
  - [#34](https://github.com/robert-j-engdahl/ngettext-wpf/issues/34) Crash when msgId was null.
-
+ 
 
 ## [1.2.1-alpha] - 2019-02-27
 ## Fixed
