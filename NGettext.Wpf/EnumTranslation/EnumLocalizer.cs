@@ -30,7 +30,7 @@ namespace NGettext.Wpf.EnumTranslation
                 return enumMemberName;
             }
 
-            return _localizer.Catalog.GetString(msgIdAttribute.MsgId);
+            return _localizer.Gettext(msgIdAttribute.MsgId);
         }
     }
 }

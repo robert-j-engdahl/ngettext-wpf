@@ -22,6 +22,9 @@ namespace NGettext.Wpf.Tests.EnumTranslation
             [EnumMsgId("another enum value")]
             AnotherEnumValue,
 
+            [EnumMsgId("some context|a third enum value")]
+            ThirdEnumValue,
+
             EnumValueWithoutMsgId,
         }
 
@@ -31,6 +34,17 @@ namespace NGettext.Wpf.Tests.EnumTranslation
         public void Translates_MsgId_Of_Enum_Value(TestEnum enumValue, string msgId)
         {
             _localizer.Catalog.GetString(Arg.Is(msgId)).Returns("expected translation");
+
+            var actual = _target.LocalizeEnum(enumValue);
+
+            Assert.Equal("expected translation", actual);
+        }
+
+        [Theory]
+        [InlineData(TestEnum.ThirdEnumValue, "some context", "a third enum value")]
+        public void Translates_MsgId_Of_Enum_Value_With_Context(TestEnum enumValue, string context, string msgId)
+        {
+            _localizer.Catalog.GetParticularString(Arg.Is(context), Arg.Is(msgId)).Returns("expected translation");
 
             var actual = _target.LocalizeEnum(enumValue);
 
