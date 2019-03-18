@@ -13,6 +13,9 @@ namespace NGettext.Wpf.Example
         [EnumMsgId("Some third value")]
         SomeThirdValue,
 
+        [EnumMsgId("EnumMsgId example|Some fourth value")]
+        SomeFourthValue,
+
         SomeValueWithoutEnumMsgId,
     }
 }
