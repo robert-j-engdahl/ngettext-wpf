@@ -9,6 +9,7 @@ using NGettext.Wpf.Common;
 
 namespace NGettext.Wpf
 {
+    [MarkupExtensionReturnType(typeof(string))]
     public class GettextExtension : MarkupExtension, IWeakCultureObserver
     {
         private DependencyObject _dependencyObject;
@@ -40,7 +41,7 @@ namespace NGettext.Wpf
                 _dependencyObject = dependencyObject;
                 if (DesignerProperties.GetIsInDesignMode(_dependencyObject))
                 {
-                    return string.Format(MsgId, Params);
+                    return Gettext();
                 }
 
                 AttachToCultureChangedEvent();
