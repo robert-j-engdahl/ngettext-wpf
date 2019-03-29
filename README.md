@@ -45,6 +45,16 @@ Keep your raw translations in `"Locale\<LOCALE>\LC_MESSAGES\<DOMAIN>.po"`.  This
 
 There are lots of GNU conventions related to internationalization (i18n) and localization (l10n).  One of them is that the notion that the original program is written in US English, so you don't need to translate anything to facilitate internationalization.  The original text in US English is called the `msgId`.
 
+One of the most important GNU convention related to internationalization is providing a context to the translaters so they have a chance to do it right.  For instance the English word 'order' has a number of more or less related meanings and thus different translations.  For instance in the context of sequential ordering, 'order' translates to 'rækkefølge' in `da-DK`, but the imperative for placing an order translates to 'bestil'.  Here is an example of how that can be fixed:
+
+```xml
+<!-- A button with the text 'Order' but with a helpful context for the translators -->
+<Button Command="{StaticResource PlaceOrderCommand}" 
+        Content="{wpf:Gettext Imperative for placing an order|Order}" />
+```
+
+Translaters will rarely think of it, and just translate the first meaning that comes to mind, and as a programmer you might not know which words or sentenses needs a context, I therefore highly recommend to always provide a helpful context.
+
 ---
 
 ## Support
