@@ -8,6 +8,8 @@ namespace NGettext.Wpf
     {
         ICatalog Catalog { get; }
         ICultureTracker CultureTracker { get; }
+
+        ICatalog GetCatalog(CultureInfo cultureInfo);
     }
 
     public class Localizer : IDisposable, ILocalizer
@@ -30,10 +32,15 @@ namespace NGettext.Wpf
 
         private void ResetCatalog(CultureInfo cultureInfo)
         {
+            Catalog = GetCatalog(cultureInfo);
+        }
+
+        public ICatalog GetCatalog(CultureInfo cultureInfo)
+        {
             var localeDir = "Locale";
             Console.WriteLine(
                 $"NGettext.Wpf: Attempting to load \"{Path.GetFullPath(Path.Combine(localeDir, cultureInfo.Name, "LC_MESSAGES", _domainName + ".mo"))}\"");
-            Catalog = new Catalog(_domainName, localeDir, cultureInfo);
+            return new Catalog(_domainName, localeDir, cultureInfo);
         }
 
         public ICatalog Catalog { get; private set; }

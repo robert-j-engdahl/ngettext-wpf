@@ -1,12 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Web;
 using JetBrains.Annotations;
+using NGettext.Wpf.Serialization;
 
 namespace NGettext.Wpf
 {
     public static class Translation
     {
+        private static TranslationSerializer _translationSerializer;
+
         [StringFormatMethod("msgId")]
         public static string _(string msgId, params object[] @params)
         {
@@ -64,6 +69,25 @@ namespace NGettext.Wpf
                 return (args.Any() ? string.Format(CultureInfo.InvariantCulture, text, args) : text);
             }
             return args.Any() ? Localizer.Catalog.GetParticularString(context, text, args) : Localizer.Catalog.GetParticularString(context, text);
+        }
+
+        [StringFormatMethod("msgId")]
+        [Obsolete("This method is experimental, and may go away")]
+        public static string SerializedGettext(IEnumerable<CultureInfo> cultureInfos, string msgId, params object[] args)
+        {
+            if (Localizer is null)
+            {
+                var message = args.Any() ? Localizer.Gettext(msgId, args) : Localizer.Gettext(msgId);
+
+                return "{" + string.Join(", ", cultureInfos.Select(c => $"\"{c.Name}\": \"{HttpUtility.JavaScriptStringEncode(message)}\"")) + "}";
+            }
+
+            if (_translationSerializer == null)
+            {
+                _translationSerializer = new TranslationSerializer(Localizer.GetCatalog);
+            }
+
+            return _translationSerializer.SerializedGettext(cultureInfos, msgId, args);
         }
     }
 }

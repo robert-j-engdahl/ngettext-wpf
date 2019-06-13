@@ -1,4 +1,7 @@
-﻿using NSubstitute;
+﻿using System.Collections.Generic;
+using System.Globalization;
+using Newtonsoft.Json;
+using NSubstitute;
 using Xunit;
 
 namespace NGettext.Wpf.Tests
@@ -169,6 +172,16 @@ namespace NGettext.Wpf.Tests
             Translation.Localizer = null;
 
             Assert.Equal(expectedResult, Translation.GetParticularPluralString(context, singularMsgId, pluralMsgId, n, @params));
+        }
+
+        [Fact]
+        public void Static_TranslationSerializer_Wrapper_Has_Fallback()
+        {
+            Translation.Localizer = null;
+            var serializedGettext = Translation.SerializedGettext(new[] { new CultureInfo("en-US"), new CultureInfo("da-DK") },
+                "Context|Message");
+
+            Assert.Equal("Message", JsonConvert.DeserializeObject<Dictionary<string, string>>(serializedGettext)["da-DK"]);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Web;
+using JetBrains.Annotations;
 
 namespace NGettext.Wpf.Serialization
 {
@@ -16,6 +17,8 @@ namespace NGettext.Wpf.Serialization
             _createCatalog = createCatalog;
         }
 
+        [StringFormatMethod("msgId")]
+        [Obsolete("This method is experimental, and may go away.")]
         public string SerializedGettext(IEnumerable<CultureInfo> cultureInfos, string msgId, params object[] args)
         {
             var msgIdWithContext = LocalizerExtensions.ConvertToMsgIdWithContext(msgId);

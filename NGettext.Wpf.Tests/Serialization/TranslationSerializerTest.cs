@@ -61,7 +61,7 @@ namespace NGettext.Wpf.Tests.Serialization
         [InlineData("da-DK", "Some context|English message {0}", "Dansk besked 42")]
         [InlineData("en-US", "Other English message {0}", "Other English message 42")]
         [InlineData("da-DK", "Other English message {0}", "Anden dansk besked 42")]
-        public void Serializes_Translated_Messages_Argv(string locale, string msgId, string message)
+        public void Serializes_Translated_Messages_Args(string locale, string msgId, string message)
         {
             var serializedGettext = _target.SerializedGettext(new[] { new CultureInfo("en-US"), new CultureInfo("da-DK") }, msgId, 42);
 
