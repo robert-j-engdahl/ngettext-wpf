@@ -18,7 +18,7 @@ namespace NGettext.Wpf.Serialization
         }
 
         [StringFormatMethod("msgId")]
-        [Obsolete("This method is experimental, and may go away.")]
+        [Obsolete("This method is experimental, and may go away")]
         public string SerializedGettext(IEnumerable<CultureInfo> cultureInfos, string msgId, params object[] args)
         {
             var msgIdWithContext = LocalizerExtensions.ConvertToMsgIdWithContext(msgId);

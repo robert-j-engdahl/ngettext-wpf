@@ -71,6 +71,8 @@ namespace NGettext.Wpf
             return args.Any() ? Localizer.Catalog.GetParticularString(context, text, args) : Localizer.Catalog.GetParticularString(context, text);
         }
 
+#if ALPHA
+
         [StringFormatMethod("msgId")]
         [Obsolete("This method is experimental, and may go away")]
         public static string SerializedGettext(IEnumerable<CultureInfo> cultureInfos, string msgId, params object[] args)
@@ -89,5 +91,6 @@ namespace NGettext.Wpf
 
             return _translationSerializer.SerializedGettext(cultureInfos, msgId, args);
         }
+#endif
     }
 }

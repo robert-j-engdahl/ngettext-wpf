@@ -174,6 +174,8 @@ namespace NGettext.Wpf.Tests
             Assert.Equal(expectedResult, Translation.GetParticularPluralString(context, singularMsgId, pluralMsgId, n, @params));
         }
 
+#if ALPHA
+
         [Fact]
         public void Static_TranslationSerializer_Wrapper_Has_Fallback()
         {
@@ -183,5 +185,7 @@ namespace NGettext.Wpf.Tests
 
             Assert.Equal("Message", JsonConvert.DeserializeObject<Dictionary<string, string>>(serializedGettext)["da-DK"]);
         }
+
+#endif
     }
 }
