@@ -41,6 +41,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Expression.Blend.Sdk.1.0.2\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -67,6 +68,7 @@
     <Compile Include="GettextExtension.cs" />
     <Compile Include="IWeakCultureObserver.cs" />
     <Compile Include="ResharperAnnotations.cs" />
+    <Compile Include="Serialization\TranslationSerializer.cs" />
     <Compile Include="TrackCurrentCultureBehavior.cs" />
     <Compile Include="Localizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

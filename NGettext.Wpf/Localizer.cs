@@ -47,13 +47,13 @@ namespace NGettext.Wpf
 
     public static class LocalizerExtensions
     {
-        private struct MsgIdWithContext
+        internal struct MsgIdWithContext
         {
             internal string Context { get; set; }
             internal string MsgId { get; set; }
         }
 
-        private static MsgIdWithContext ConvertToMsgIdWithContext(string msgId)
+        internal static MsgIdWithContext ConvertToMsgIdWithContext(string msgId)
         {
             var result = new MsgIdWithContext { MsgId = msgId };
 
