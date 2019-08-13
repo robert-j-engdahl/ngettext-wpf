@@ -20,9 +20,10 @@
 	
 	ForEach ($keyword in $Keywords)
 	{
-		$sourceFiles | ForEach-Object {
-			Select-String $_ -Pattern $("{[a-z]?[a-z0-9]*:"+$keyword+ " (([^}{]|{[^}]*})*)}") -AllMatches | ForEach-Object {
-				$filename = $_.Filename
+		ForEach ($sourceFile in $sourceFiles)
+		{
+			Select-String $sourceFile -Pattern $("{[a-z]?[a-z0-9]*:"+$keyword+ " (([^}{]|{[^}]*})*)}") -AllMatches | ForEach-Object {
+				$filename = $sourceFile
 				$lineNumber = $_.LineNumber
 				$_.Matches | ForEach-Object {
 					$msgid = $_.Groups[1].ToString()
