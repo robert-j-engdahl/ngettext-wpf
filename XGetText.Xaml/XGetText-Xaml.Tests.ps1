@@ -47,7 +47,7 @@ Describe "XGetText-Xaml" {
     }
 
     It "Annotates msgid with filename and line number" {
-        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("#: TestFile.xaml:8" + [System.Environment]::NewLine + "msgid ""NGettext.WPF Example""")) 
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("#: TestDrive:\TestFile.xaml:8" + [System.Environment]::NewLine + "msgid ""NGettext.WPF Example""")) 
     }
 
 	It "Annotates msgid with msgctxt" {
@@ -56,7 +56,7 @@ Describe "XGetText-Xaml" {
     }
 
     It "Joins matching msgids" {
-        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("#: TestFile.xaml:26" + [System.Environment]::NewLine + "#: TestFile.xaml:27" + [System.Environment]::NewLine +"msgid ""Danish"""))
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("#: TestDrive:\TestFile.xaml:26" + [System.Environment]::NewLine + "#: TestDrive:\TestFile.xaml:27" + [System.Environment]::NewLine +"msgid ""Danish"""))
     }
 
     It "Does not ignore casing of msgids when joining" {
@@ -71,7 +71,7 @@ Describe "XGetText-Xaml" {
     }
 
     It "Quotes are optional" {
-        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("#: TestFile.xaml:28" + [System.Environment]::NewLine + "#: TestFile.xaml:29" + [System.Environment]::NewLine +"msgid ""Quotes are optional"""))
+        XGetText-Xaml TestDrive:\TestFile.xaml -k Gettext -o - | Should -Match ([regex]::Escape("#: TestDrive:\TestFile.xaml:28" + [System.Environment]::NewLine + "#: TestDrive:\TestFile.xaml:29" + [System.Environment]::NewLine +"msgid ""Quotes are optional"""))
     }
 
     It "Supports escaped single-quotes" {
