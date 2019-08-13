@@ -1,8 +1,10 @@
 How to Run the Tests
 ====================
 
-To invoke the tests, simply run
+Make sure the nuget packages of the solution are restored and then invoke
 
-    > Invoke-Pester
+    > pester
     
-from this directory
+from the Package Manager Console.
+
+If you try the more conventional `Invoke-Pester` you might get all kinds of errors, because your local Pester installation might not be compatible with the Pester tests in this repository.
