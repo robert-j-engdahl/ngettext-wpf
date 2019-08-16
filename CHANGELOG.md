@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.2.6-alpha] - 2019-08-16
 ### Added
  - XGettext-Xaml annotated locations match the given parameter instead of just the filename.  This is useful when making PoEdit friendly .po files where the locations must be relative.  Thanks to @PGPoulsen for the PR.
 
