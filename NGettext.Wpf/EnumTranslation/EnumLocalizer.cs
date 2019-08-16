@@ -22,7 +22,7 @@ namespace NGettext.Wpf.EnumTranslation
         {
             var type = value.GetType();
             var enumMemberName = value.ToString();
-            var msgIdAttribute = (EnumMsgIdAttribute)type.GetMember(enumMemberName).Single().GetCustomAttribute(typeof(EnumMsgIdAttribute), true);
+            var msgIdAttribute = (EnumMsgIdAttribute)type.GetMember(enumMemberName).SingleOrDefault()?.GetCustomAttribute(typeof(EnumMsgIdAttribute), true);
 
             if (msgIdAttribute is null)
             {

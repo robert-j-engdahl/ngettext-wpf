@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
  - XGettext-Xaml annotated locations match the given parameter instead of just the filename.  This is useful when making PoEdit friendly .po files where the locations must be relative.  Thanks to @PGPoulsen for the PR.
 
+ ### Fixed
+ - [46](https://github.com/robert-j-engdahl/ngettext-wpf/issues/46) Crash when localizing invalid enum value
+
 ## [1.2.5-alpha] - 2019-06-13
 ### Added
  - Experimental TranslationSerializer for making localized json objects that can be used from TSQL like so

@@ -28,6 +28,18 @@ namespace NGettext.Wpf.Tests.EnumTranslation
             EnumValueWithoutMsgId,
         }
 
+        public enum EmptyEnum
+        {
+        }
+
+        [Fact]
+        public void Handles_Invalid_Enum_Member()
+        {
+            var e = Record.Exception(() => _target.LocalizeEnum(default(EmptyEnum)));
+
+            Assert.Null(e);
+        }
+
         [Theory]
         [InlineData(TestEnum.EnumValue, "enum value")]
         [InlineData(TestEnum.AnotherEnumValue, "another enum value")]
