@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Web;
 using JetBrains.Annotations;
 using NGettext.Wpf.Serialization;
 
