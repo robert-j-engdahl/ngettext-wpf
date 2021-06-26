@@ -2,7 +2,11 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Markup;
+#if NET45
 using System.Windows.Interactivity;
+#else
+using Microsoft.Xaml.Behaviors;
+#endif
 
 namespace NGettext.Wpf
 {

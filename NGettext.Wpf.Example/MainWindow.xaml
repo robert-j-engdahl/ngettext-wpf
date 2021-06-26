@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:wpf="clr-namespace:NGettext.Wpf;assembly=NGettext.Wpf"
-        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:enumTranslation="clr-namespace:NGettext.Wpf.EnumTranslation;assembly=NGettext.Wpf"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         SizeToContent="Height"

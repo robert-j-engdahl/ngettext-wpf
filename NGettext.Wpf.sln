@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGettext.Wpf", "NGettext.Wpf\NGettext.Wpf.csproj", "{4BB0EB35-FE32-4295-BF39-4DA1C9B67BB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGettext.Wpf", "NGettext.Wpf\NGettext.Wpf.csproj", "{4BB0EB35-FE32-4295-BF39-4DA1C9B67BB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGettext.Wpf.Tests", "NGettext.Wpf.Tests\NGettext.Wpf.Tests.csproj", "{6412072C-16E3-45EC-98C0-26516F475C43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGettext.Wpf.Tests", "NGettext.Wpf.Tests\NGettext.Wpf.Tests.csproj", "{6412072C-16E3-45EC-98C0-26516F475C43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGettext.Wpf.Example", "NGettext.Wpf.Example\NGettext.Wpf.Example.csproj", "{33C46AC9-74F3-456B-8FF5-176847C9C2EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGettext.Wpf.Example", "NGettext.Wpf.Example\NGettext.Wpf.Example.csproj", "{33C46AC9-74F3-456B-8FF5-176847C9C2EE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{296B6C7B-D983-4576-BBF4-3C6221A7E1E4}"
 	ProjectSection(SolutionItems) = preProject

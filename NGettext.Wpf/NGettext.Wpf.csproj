@@ -1,31 +1,52 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
-    <OutputType>Library</OutputType>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <UseWPF>true</UseWPF>
-    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DefineConstants>TRACE;ALPHA</DefineConstants>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Update="NGettext.Wpf.nuspec">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Expression.Blend.Sdk" Version="1.0.2" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="NGettext" Version="0.6.6" />
-    <PackageReference Include="NuGet.CommandLine" Version="5.9.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
-  </ItemGroup>
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net5.0-windows;net45</TargetFrameworks>
+		<PackageId>NGettext.Wpf</PackageId>
+		<Version>1.2.7-alpha</Version>
+		<Authors>Robert Jørgensgaard Engdahl</Authors>
+		<OutputType>Library</OutputType>
+		<Title>WPF support for NGettext</Title>
+		<PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/robert-j-engdahl/ngettext-wpf</PackageProjectUrl>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<Description>Proper internationalization support for WPF (via NGettext). In particular a GetTextMarkupExtension is included, which is what everyone uses anyway.</Description>
+		<Copyright>Copyright 2017-2021 Accuratech ApS</Copyright>
+		<PackageTags>gettext wpf ngettext gettextmarkupextension xgettext-xaml</PackageTags>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<UseWPF>true</UseWPF>
+		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DefineConstants>TRACE;ALPHA</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Update="NGettext.Wpf.nuspec">
+			<SubType>Designer</SubType>
+		</None>
+	</ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+		<PackageReference Include="Expression.Blend.Sdk" Version="1.0.2" />
+		<PackageReference Include="NuGet.CommandLine" Version="4.7.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<Reference Include="System.Web" />
+	</ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net5.0-windows' ">
+		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+		<PackageReference Include="NGettext" Version="0.6.6" />
+		<PackageReference Include="NuGet.CommandLine" Version="5.9.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+		<PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
+	</ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net5.0-windows' ">
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
 </Project>
