@@ -15,13 +15,13 @@ namespace NGettext.Wpf.Tests
         public LocalizerTest()
         {
             _cultureTracker.CurrentCulture.Returns(_initialCulture);
-            _target = new Localizer(_cultureTracker, "some domain");
+            _target = new Localizer(_cultureTracker, "some domain", "Locale");
         }
 
         [Fact]
         public void Depends_On_CultureTracker()
         {
-            Assert.DependsOn("cultureTracker", () => new Localizer(null, "some domain"));
+            Assert.DependsOn("cultureTracker", () => new Localizer(null, "some domain", "Locale"));
         }
 
         [Fact]
