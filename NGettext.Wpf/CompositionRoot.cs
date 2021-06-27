@@ -10,7 +10,7 @@ namespace NGettext.Wpf
             if (dependencyResolver is null) dependencyResolver = new NGettextWpfDependencyResolver();
 
             var cultureTracker = dependencyResolver.ResolveCultureTracker();
-            var localizer = new Localizer(cultureTracker, domainName, localeDir);
+            var localizer = new Localizer(cultureTracker, localeDir, domainName);
 
             ChangeCultureCommand.CultureTracker = cultureTracker;
             GettextExtension.Localizer = localizer;
