@@ -14,10 +14,12 @@ namespace NGettext.Wpf
 
     public class Localizer : IDisposable, ILocalizer
     {
+        private readonly string _localeDir;
         private readonly string _domainName;
 
-        public Localizer(ICultureTracker cultureTracker, string domainName)
+        public Localizer(ICultureTracker cultureTracker, string localeDir, string domainName)
         {
+            _localeDir = localeDir;
             _domainName = domainName;
             CultureTracker = cultureTracker;
             if (cultureTracker == null) throw new ArgumentNullException(nameof(cultureTracker));
@@ -37,10 +39,9 @@ namespace NGettext.Wpf
 
         public ICatalog GetCatalog(CultureInfo cultureInfo)
         {
-            var localeDir = "Locale";
             Console.WriteLine(
-                $"NGettext.Wpf: Attempting to load \"{Path.GetFullPath(Path.Combine(localeDir, cultureInfo.Name, "LC_MESSAGES", _domainName + ".mo"))}\"");
-            return new Catalog(_domainName, localeDir, cultureInfo);
+                $"NGettext.Wpf: Attempting to load \"{Path.GetFullPath(Path.Combine(_localeDir, cultureInfo.Name, "LC_MESSAGES", _domainName + ".mo"))}\"");
+            return new Catalog(_domainName, _localeDir, cultureInfo);
         }
 
         public ICatalog Catalog { get; private set; }
