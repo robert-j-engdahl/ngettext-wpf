@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<TargetFrameworks>net5.0-windows;net45</TargetFrameworks>
 		<PackageId>NGettext.Wpf</PackageId>
-		<Version>1.2.7-alpha</Version>
+		<Version>1.2.8-alpha</Version>
 		<Authors>Robert Jørgensgaard Engdahl</Authors>
 		<OutputType>Library</OutputType>
 		<Title>WPF support for NGettext</Title>

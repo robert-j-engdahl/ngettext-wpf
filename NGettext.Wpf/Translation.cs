@@ -6,11 +6,21 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 
+//
+// Usage:
+//		T._("Hello, World!"); // GetString
+//		T._n("You have {0} apple.", "You have {0} apples.", count, count); // GetPluralString
+//		T._p("Context", "Hello, World!"); // GetParticularString
+//		T._pn("Context", "You have {0} apple.", "You have {0} apples.", count, count); // GetParticularPluralString
+//
+
 namespace NGettext.Wpf
 {
     public static class Translation
     {
+#if ALPHA
         private static TranslationSerializer _translationSerializer;
+#endif
 
         [StringFormatMethod("msgId")]
         public static string _(string msgId, params object[] @params)
@@ -24,7 +34,7 @@ namespace NGettext.Wpf
 
         [StringFormatMethod("singularMsgId")]
         [StringFormatMethod("pluralMsgId")] //< not yet supported, #1833369.
-        [Obsolete("Use GetPluralString() instead.  This method will be removed in 2.x")]
+        [Obsolete("Use GetPluralString() or the short version _n() instead. This method will be removed in 2.x")]
         public static string PluralGettext(int n, string singularMsgId, string pluralMsgId, params object[] @params)
         {
             return GetPluralString(singularMsgId, pluralMsgId, n, @params);
@@ -32,7 +42,7 @@ namespace NGettext.Wpf
 
         [StringFormatMethod("singularMsgId")]
         [StringFormatMethod("pluralMsgId")] //< not yet supported, #1833369.
-        public static string GetPluralString(string singularMsgId, string pluralMsgId, int n, params object[] args)
+        public static string GetPluralString(string singularMsgId, string pluralMsgId, long n, params object[] args)
         {
             if (Localizer is null)
             {
@@ -45,9 +55,14 @@ namespace NGettext.Wpf
                 : Localizer.Catalog.GetPluralString(singularMsgId, pluralMsgId, n);
         }
 
+        //Short version of the "GetPluralString" function
+        [StringFormatMethod("singularMsgId")]
+        [StringFormatMethod("pluralMsgId")] //< not yet supported, #1833369.
+        public static string _n(string singularMsgId, string pluralMsgId, long n, params object[] args) => GetPluralString(singularMsgId, pluralMsgId, n, args);
+
         [StringFormatMethod("text")]
         [StringFormatMethod("pluralText")] //< not yet supported, #1833369.
-        public static string GetParticularPluralString(string context, string text, string pluralText, int n, params object[] args)
+        public static string GetParticularPluralString(string context, string text, string pluralText, long n, params object[] args)
         {
             if (Localizer is null)
             {
@@ -60,6 +75,11 @@ namespace NGettext.Wpf
                 : Localizer.Catalog.GetParticularPluralString(context, text, pluralText, n);
         }
 
+        //Short version of the "GetParticularPluralString" function
+        [StringFormatMethod("text")]
+        [StringFormatMethod("pluralText")] //< not yet supported, #1833369.
+        public static string _pn(string context, string text, string pluralText, long n, params object[] args) => GetParticularPluralString(context, text, pluralText, n, args);
+
         [StringFormatMethod("text")]
         public static string GetParticularString(string context, string text, params object[] args)
         {
@@ -70,6 +90,10 @@ namespace NGettext.Wpf
             }
             return args.Any() ? Localizer.Catalog.GetParticularString(context, text, args) : Localizer.Catalog.GetParticularString(context, text);
         }
+
+        //Short version of the "GetParticularString" function
+        [StringFormatMethod("text")]
+        public static string _p(string context, string text, params object[] args) => GetParticularString(context, text, args);
 
 #if ALPHA
 
