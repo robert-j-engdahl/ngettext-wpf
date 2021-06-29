@@ -1,170 +1,94 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\packages\xunit.core.2.3.1\build\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.3.1\build\xunit.core.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6412072C-16E3-45EC-98C0-26516F475C43}</ProjectGuid>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NGettext.Wpf.Tests</RootNamespace>
-    <AssemblyName>NGettext.Wpf.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;ALPHA</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="NGettext, Version=0.6.1.0, Culture=neutral, PublicKeyToken=08d3d1c89dfd2985, processorArchitecture=MSIL">
-      <HintPath>..\packages\NGettext.0.6.3\lib\net46\NGettext.dll</HintPath>
-    </Reference>
-    <Reference Include="NSubstitute, Version=3.1.0.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
-      <HintPath>..\packages\NSubstitute.3.1.0\lib\net46\NSubstitute.dll</HintPath>
-    </Reference>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
-    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\packages\xunit.abstractions.2.0.1\lib\net35\xunit.abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="xunit.core, Version=2.3.1.3858, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\packages\xunit.extensibility.core.2.3.1\lib\netstandard1.1\xunit.core.dll</HintPath>
-    </Reference>
-    <Reference Include="xunit.execution.desktop, Version=2.3.1.3858, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\packages\xunit.extensibility.execution.2.3.1\lib\net452\xunit.execution.desktop.dll</HintPath>
-    </Reference>
-    <Reference Include="Xunit.StaFact, Version=0.2.0.0, Culture=neutral, PublicKeyToken=593f35978b459a4b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xunit.StaFact.0.2.9\lib\net452\Xunit.StaFact.dll</HintPath>
-    </Reference>
+    <Compile Remove="Asserts\**" />
+    <EmbeddedResource Remove="Asserts\**" />
+    <None Remove="Asserts\**" />
+    <Page Remove="Asserts\**" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assert.cs" />
-    <Compile Include="Asserts\Assert.cs" />
-    <Compile Include="Asserts\BooleanAsserts.cs" />
-    <Compile Include="Asserts\CollectionAsserts.cs" />
-    <Compile Include="Asserts\Comparers.cs" />
-    <Compile Include="Asserts\EqualityAsserts.cs" />
-    <Compile Include="Asserts\EventAsserts.cs" />
-    <Compile Include="Asserts\ExceptionAsserts.cs" />
-    <Compile Include="Asserts\Guards.cs" />
-    <Compile Include="Asserts\IdentityAsserts.cs" />
-    <Compile Include="Asserts\NullAsserts.cs" />
-    <Compile Include="Asserts\PropertyAsserts.cs" />
-    <Compile Include="Asserts\RangeAsserts.cs" />
-    <Compile Include="Asserts\Record.cs" />
-    <Compile Include="Asserts\Sdk\ArgumentFormatter.cs" />
-    <Compile Include="Asserts\Sdk\AssertComparer.cs" />
-    <Compile Include="Asserts\Sdk\AssertEqualityComparer.cs" />
-    <Compile Include="Asserts\Sdk\AssertEqualityComparerAdapter.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\AllException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\AssertActualExpectedException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\AssertCollectionCountException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\CollectionException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\ContainsException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\DoesNotContainException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\DoesNotMatchException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\EmptyException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\EndsWithException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\EqualException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\FalseException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\InRangeException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\IsAssignableFromException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\IsNotTypeException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\IsTypeException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\MatchesException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\NotEmptyException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\NotEqualException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\NotInRangeException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\NotNullException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\NotSameException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\NullException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\ParameterCountMismatchException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\ProperSubsetException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\ProperSupersetException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\PropertyChangedException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\RaisesException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\SameException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\SingleException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\StartsWithException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\SubsetException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\SupersetException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\ThrowsException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\TrueException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\XunitException.cs" />
-    <Compile Include="Asserts\SetAsserts.cs" />
-    <Compile Include="Asserts\StringAsserts.cs" />
-    <Compile Include="Asserts\TypeAsserts.cs" />
-    <Compile Include="ChangeCultureCommandTest.cs" />
-    <Compile Include="Common\GettextStringFormatConverterTest.cs" />
-    <Compile Include="CultureEventArgsTest.cs" />
-    <Compile Include="CultureTrackerTest.cs" />
-    <Compile Include="EnumTranslation\EnumLocalizerTest.cs" />
-    <Compile Include="EnumTranslation\LocalizeEnumConverterTest.cs" />
-    <Compile Include="GettextExtensionTest.cs" />
-    <Compile Include="GettextFormatConverterExtensionTest.cs" />
-    <Compile Include="InternalResolvesNameConflictsTest\ResharperAnnotations.cs" />
-    <Compile Include="LocalizerTest.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serialization\TranslationSerializerTest.cs" />
-    <Compile Include="TranslationTest.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Assert.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\BooleanAsserts.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\CollectionAsserts.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Comparers.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\EqualityAsserts.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\EventAsserts.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\ExceptionAsserts.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Guards.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\IdentityAsserts.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\NullAsserts.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\PropertyAsserts.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\RangeAsserts.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Record.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\ArgumentFormatter.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\AssertComparer.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\AssertEqualityComparer.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\AssertEqualityComparerAdapter.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\AllException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\AssertActualExpectedException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\AssertCollectionCountException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\CollectionException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\ContainsException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\DoesNotContainException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\DoesNotMatchException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\EmptyException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\EndsWithException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\EqualException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\FalseException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\InRangeException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\IsAssignableFromException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\IsNotTypeException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\IsTypeException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\MatchesException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\NotEmptyException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\NotEqualException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\NotInRangeException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\NotNullException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\NotSameException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\NullException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\ParameterCountMismatchException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\ProperSubsetException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\ProperSupersetException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\PropertyChangedException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\RaisesException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\SameException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\SingleException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\StartsWithException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\SubsetException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\SupersetException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\ThrowsException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\TrueException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\Sdk\Exceptions\XunitException.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\SetAsserts.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\StringAsserts.cs" />
+    <Compile Remove="C:\Users\Jens-Peter\.nuget\packages\xunit.assert.source\2.3.1\contentFiles\cs\netstandard1.1\Asserts\TypeAsserts.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NGettext.Wpf\NGettext.Wpf.csproj">
-      <Project>{4bb0eb35-fe32-4295-bf39-4da1c9b67bb8}</Project>
-      <Name>NGettext.Wpf</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
+    <ProjectReference Include="..\NGettext.Wpf\NGettext.Wpf.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\xunit.core.2.3.1\build\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.3.1\build\xunit.core.props'))" />
-    <Error Condition="!Exists('..\packages\xunit.core.2.3.1\build\xunit.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.3.1\build\xunit.core.targets'))" />
-  </Target>
+  <ItemGroup>
+    <PackageReference Include="NSubstitute" Version="4.2.2" />
+    <PackageReference Include="Pester" Version="5.2.2" />
+    <PackageReference Include="xunit.assert.source" Version="2.4.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="xunit.core" Version="2.4.1" />
+    <PackageReference Include="Xunit.StaFact" Version="1.0.37" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
   <Import Project="..\packages\xunit.core.2.3.1\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.3.1\build\xunit.core.targets')" />
 </Project>

@@ -5,12 +5,12 @@ namespace NGettext.Wpf
 {
     public static class CompositionRoot
     {
-        public static void Compose(string domainName, NGettextWpfDependencyResolver dependencyResolver = null)
+        public static void Compose(string domainName, string localeDir = "Locale", NGettextWpfDependencyResolver dependencyResolver = null)
         {
             if (dependencyResolver is null) dependencyResolver = new NGettextWpfDependencyResolver();
 
             var cultureTracker = dependencyResolver.ResolveCultureTracker();
-            var localizer = new Localizer(cultureTracker, domainName);
+            var localizer = new Localizer(cultureTracker, localeDir, domainName);
 
             ChangeCultureCommand.CultureTracker = cultureTracker;
             GettextExtension.Localizer = localizer;
