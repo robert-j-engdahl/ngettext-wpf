@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:wpf="clr-namespace:NGettext.Wpf;assembly=NGettext.Wpf"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="MemoryLeakTestWindow" Height="300" Width="300">
-    <i:Interaction.Behaviors>
+    <b:Interaction.Behaviors>
         <wpf:TrackCurrentCultureBehavior />
-    </i:Interaction.Behaviors>
+    </b:Interaction.Behaviors>
     <Grid>
         <TextBlock Margin="40"
                    Text="{wpf:Gettext Close this window to test that the attached behavior releases its event listeners from the culture tracker.}"
