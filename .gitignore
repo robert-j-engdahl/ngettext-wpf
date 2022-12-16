@@ -9,3 +9,4 @@ _NCrunch*
 *.pot
 *.nupkg
 *.user
+.idea/

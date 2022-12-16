@@ -1,8 +1,7 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Markup;
-using System.Windows.Interactivity;
+using Microsoft.Xaml.Behaviors;
 
 namespace NGettext.Wpf
 {

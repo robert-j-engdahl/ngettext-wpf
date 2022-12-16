@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:wpf="clr-namespace:NGettext.Wpf;assembly=NGettext.Wpf"
-        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:enumTranslation="clr-namespace:NGettext.Wpf.EnumTranslation;assembly=NGettext.Wpf"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         SizeToContent="Height"
         Title="{Binding ElementName=Window, Path=Header}"
         mc:Ignorable="d" Width="525" x:Name="Window">
@@ -17,9 +17,9 @@
             <TextBlock Text="{Binding Converter={StaticResource LocalizeEnumConverter}}" />
         </DataTemplate>
     </Window.Resources>
-    <i:Interaction.Behaviors>
+    <b:Interaction.Behaviors>
         <wpf:TrackCurrentCultureBehavior />
-    </i:Interaction.Behaviors>
+    </b:Interaction.Behaviors>
     <StackPanel Orientation="Vertical">
         <StackPanel.Resources>
             <Style TargetType="Button">
